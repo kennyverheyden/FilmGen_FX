@@ -3,8 +3,9 @@ package main;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class Home extends Application{
@@ -16,20 +17,14 @@ public class Home extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("guiHome.fxml"));
-		GridPane gridPane = loader.load();
+		Parent root = FXMLLoader.load(getClass().getResource("guiHome.fxml"));
+		Scene scene = new Scene(root);
 
 		primaryStage.setResizable(false);
-		Scene scene = new Scene(gridPane);
-
 		primaryStage.setAlwaysOnTop(false);
 		primaryStage.setScene(scene);
-
 		primaryStage.show();
 
 	}
-	
-
-
 
 }
