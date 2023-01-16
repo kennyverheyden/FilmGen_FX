@@ -48,14 +48,29 @@ public class ControllerHome {
 
 	@FXML
 	private Button storedTitles;
-
-	// Button Main menu
+	
+	// Button Generate Film
+    @FXML
+    public void onClickGenerateFilmStage(ActionEvent event) throws IOException {
+    	
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiGenerateFilm.fxml"));
+		rootPane.getChildren().setAll(pane); // load in same window
+    }
+    
+	// Button Generate Title
 	@FXML
 	public void onClickGenerateTitleStage(ActionEvent event) throws IOException {
 
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiGenerateFilm.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiGenerateTitle.fxml"));
 		rootPane.getChildren().setAll(pane); // load in same window
 	}
+	
+	// Button Generate Description
+    @FXML
+    public void onClickGenerateDescriptionStage(ActionEvent event) throws IOException {
+    	AnchorPane pane = FXMLLoader.load(getClass().getResource("guiGenerateDescription.fxml"));
+    	rootPane.getChildren().setAll(pane); // load in same window
+    }
 
 	// Button EXIT
 	@FXML
