@@ -27,14 +27,9 @@
 				<RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 			<children>
-				<Text fill="YELLOW" strokeType="OUTSIDE" strokeWidth="0.0" text="GENERATE FILM" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+				<Text fx:id="titleText" fill="YELLOW" strokeType="OUTSIDE" strokeWidth="0.0" text="GENERATE FILM" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
 					<font>
 						<Font name="Arial Black" size="24.0" />
-					</font>
-				</Text>
-				<Text fx:id="titleText" fill="YELLOW" strokeType="OUTSIDE" strokeWidth="0.0" text="PLACE HOLDER" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
-					<font>
-						<Font name="Arial Bold" size="36.0" />
 					</font>
 				</Text>
 				<Text fx:id="descriptionText" fill="YELLOW" strokeType="OUTSIDE" strokeWidth="0.0" text="A placeholder placeholder where a placeholder and a placeholder who must hold in a place" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">

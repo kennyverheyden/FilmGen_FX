@@ -39,13 +39,13 @@ public class FilmTitleDescription extends Film{
 	}
 
 	// User generate new title
-	private void generateNewTitle()
+	public void generateNewTitle()
 	{
 		this.generatedTitle=title.generateTitle();
 	}
 
 	// User generate new description
-	private void generateNewDescription()
+	public void generateNewDescription()
 	{
 		this.generatedDescription=description.generateDescription();
 	}
@@ -194,6 +194,14 @@ public class FilmTitleDescription extends Film{
 		default:
 			break;
 		}
+	}
+
+	public String getGeneratedTitle() {
+		return generatedTitle;
+	}
+
+	public String getGeneratedDescription() {
+		return generatedDescription;
 	}
 
 }

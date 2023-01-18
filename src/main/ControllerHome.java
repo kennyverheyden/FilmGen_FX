@@ -50,16 +50,22 @@ public class ControllerHome {
 	private Button storedTitles;
 
 
-    @FXML
-    public void onClickGenerateFilmStage(ActionEvent event) throws IOException {
-    	AnchorPane pane = FXMLLoader.load(getClass().getResource("guiGenerateFilm.fxml"));
+	@FXML
+	public void onClickGenerateFilmStage(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiGenerateFilm.fxml"));
 		rootPane.getChildren().setAll(pane); // load in same window
-    }
-	
+	}
+
 	@FXML
 	public void onClickGenerateTitleStage(ActionEvent event) throws IOException {
-		
-		
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiGenerateTitle.fxml"));
+		rootPane.getChildren().setAll(pane); // load in same window
+	}
+
+	@FXML
+	public void onClickGenerateDescriptionStage(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiGenerateDescription.fxml"));
+		rootPane.getChildren().setAll(pane); // load in same window
 	}
 
 	// Button EXIT

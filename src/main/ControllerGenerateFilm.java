@@ -1,7 +1,8 @@
 package main;
 
-import java.io.IOException;
+import classes.FilmTitleDescription;
 
+import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -36,15 +37,24 @@ public class ControllerGenerateFilm {
 	@FXML
 	private Text titleText;
 
+	private FilmTitleDescription film = new FilmTitleDescription(); // Create object
+
+	public void initialize()
+	{
+		titleText.setText(film.getGeneratedTitle());
+		descriptionText.setText(film.getGeneratedDescription());
+	}
 
 	@FXML
 	public void onClickGenerateDescription(ActionEvent event) {
-
+		film.generateNewDescription();
+		descriptionText.setText(film.getGeneratedDescription());
 	}
 
 	@FXML
 	public void onClickGenerateTitle(ActionEvent event) {
-
+		film.generateNewTitle();
+		titleText.setText(film.getGeneratedTitle());
 	}
 
 	@FXML

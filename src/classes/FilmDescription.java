@@ -58,7 +58,7 @@ public class FilmDescription extends Film{
 		fkOfLocation=Integer.parseInt(myDBConnection.getSubject_fks().get(locations.indexOf(location)));
 
 		//  Build the String with the fields in the template String
-		generatedDescription=  capitalize(articleWord(hyperbolic)) +" "+ hyperbolic + " " +story+ " of "+ subject1 + " and " + subject2 + " who must " + verb + " " + subject3 + " in "+ location; 
+		generatedDescription=  capitalize(articleWord(hyperbolic)) +" "+ hyperbolic + " " +story+ " of "+ subject1 + " and " + subject2 + "\nwho must " + verb + " " + subject3 + " in "+ location; 
 
 		return generatedDescription;
 	}
