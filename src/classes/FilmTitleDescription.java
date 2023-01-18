@@ -118,12 +118,11 @@ public class FilmTitleDescription extends Film{
 	}
 
 	// Print a list of the stored films to the user
-	public void readStoredTitleDescription()
+	public ArrayList<String> readStoredTitleDescription()
 	{
 
 		ArrayList<String> keys = myDBConnection.getFilmForeignKeys();  	// Contains Primary Key and foreign keys from database
 		ArrayList<String> films = new ArrayList<>(); 					// Here we will store the merged film titles and descriptions
-		ArrayList<String> titles = new ArrayList<>();					// Here we will store the merged titles only, we use this for formatting (title length for line)
 		FilmTitleDescription filmTitleDes = new FilmTitleDescription(); // Create obj for calling delete method in parent class
 		ArrayList<Integer> pkListFilm = new ArrayList<Integer>(); 		// Here we store primary keys for the delete option
 		// Merge
@@ -148,52 +147,40 @@ public class FilmTitleDescription extends Film{
 			String mergedTitle=String.format("Genre: %-12s | Film: "+ word1 +" "+word2,genre);
 			String mergedFilm=String.format("    %5d "+ mergedTitle+"\n    Description: "+ capitalize(articleWord(hyperbolic)) +" " + hyperbolic +" "+ story +" of "+ subject1 +" and "+ subject2 + " who must "+ verb + " " + subject3 + " in " + location,(i+1)); 
 			films.add(mergedFilm); // Add film to ArrayList
-			titles.add(mergedTitle); // For formatting to know the length of the title for the divider line
 		}
 
-		// Print the films from the ArrayList
-		System.out.println("");
-		if(!keys.isEmpty())
-		{
-			System.out.println("    Stored generated films (title + description):");
-		}
-		else
-		{
-			System.out.println("    Nothing saved");
-		}
-		System.out.println("");
-		for(int i=0;i<films.size();i++)
-		{
-			if(i==0)
-			{
-				// Dynamic line - Get size for line by largest word length in ArrayList
-				printFormattingLine(getSizeLargestWord(films)-getSizeLargestWord(titles)-11);
-			}
-			System.out.println(films.get(i));
-			// Dynamic line - Get size for line by largest word length in ArrayList
-			printFormattingLine(getSizeLargestWord(films)-getSizeLargestWord(titles)-11);
+		//		// Print the films from the ArrayList
+		//		System.out.println("");
+		//		if(!keys.isEmpty())
+		//		{
+		//			System.out.println("    Stored generated films (title + description):");
+		//		}
+		//		else
+		//		{
+		//			System.out.println("    Nothing saved");
+		//		}
+		//		System.out.println("");
 
-		}
-		System.out.println("");
 
 		// Show options to the user
-		String userChoice;
-		System.out.println("    [1] Delete a film");
-		System.out.println("    [2] Save to file");
-		System.out.println("\n    Press just enter for main menu");
-		System.out.println("");
-		System.out.print("    Choice: ");
-		userChoice=userInput.nextLine().toLowerCase();
-		switch(userChoice) {
-		case "1":
-			filmTitleDes.deleteItem(pkListFilm);
-			break;
-		case "2":
-			writeToFile(objName,films);
-			break;
-		default:
-			break;
-		}
+		//		String userChoice;
+		//		System.out.println("    [1] Delete a film");
+		//		System.out.println("    [2] Save to file");
+		//		System.out.println("\n    Press just enter for main menu");
+		//		System.out.println("");
+		//		System.out.print("    Choice: ");
+		//		userChoice=userInput.nextLine().toLowerCase();
+		//		switch(userChoice) {
+		//		case "1":
+		//			filmTitleDes.deleteItem(pkListFilm);
+		//			break;
+		//		case "2":
+		//			writeToFile(objName,films);
+		//			break;
+		//		default:
+		//			break;
+		//		}
+		return films;
 	}
 
 	public String getGeneratedTitle() {

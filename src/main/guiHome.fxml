@@ -30,7 +30,7 @@
 				<Button fx:id="generateTitle" mnemonicParsing="false" onAction="#onClickGenerateTitleStage" prefWidth="140.0" text="Generate title" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
 				<Button fx:id="generateDescription" mnemonicParsing="false" onAction="#onClickGenerateDescriptionStage" prefWidth="140.0" text="Generate description" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
 				<Button fx:id="storedFilms" mnemonicParsing="false" prefWidth="140.0" text="Stored films" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-				<Button fx:id="storedTitles" mnemonicParsing="false" prefWidth="200.0" text="Separately stored titles" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+				<Button fx:id="storedTitles" mnemonicParsing="false" onAction="#onClickStoredTitles" prefWidth="200.0" text="Separately stored titles" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
 				<Button fx:id="storedDescriptions" mnemonicParsing="false" prefWidth="200.0" text="Separatly stored descriptions" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
 				<Button fx:id="options" mnemonicParsing="false" prefWidth="80.0" text="Options" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
 				<Button fx:id="exit" mnemonicParsing="false" onAction="#onClickExit" prefWidth="80.0" text="Exit" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />

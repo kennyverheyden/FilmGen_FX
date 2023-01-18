@@ -68,6 +68,12 @@ public class ControllerHome {
 		rootPane.getChildren().setAll(pane); // load in same window
 	}
 
+	@FXML
+	public void onClickStoredTitles(ActionEvent event) throws IOException {
+	AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStoredTitles.fxml"));
+		rootPane.getChildren().setAll(pane); // load in same window
+	}
+
 	// Button EXIT
 	@FXML
 	public void onClickExit(ActionEvent event) {
