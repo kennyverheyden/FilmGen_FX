@@ -28,7 +28,7 @@
 			</rowConstraints>
 			<children>
 				<Button fx:id="backToMain" mnemonicParsing="false" onAction="#onClickToMain" text="Back to main" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-            <TableView prefHeight="90.0" prefWidth="652.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="3">
+            <TableView fx:id="tableTitles" prefHeight="90.0" prefWidth="652.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="3">
               <columns>
                 <TableColumn fx:id="storedTitles" maxWidth="800.0" prefWidth="695.0" text="C1" />
               </columns>
