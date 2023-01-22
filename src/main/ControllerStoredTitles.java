@@ -40,6 +40,7 @@ public class ControllerStoredTitles {
 	{
 		// Puts the titles contained in an ArrayList in a list
 		listview.getItems().addAll(listedTitles);
+		listview.setStyle("-fx-font-family: monospace; -fx-font-weight: bold;");
 	}
 
 	@FXML
@@ -85,6 +86,7 @@ public class ControllerStoredTitles {
 				ArrayList<String> listedTitles = new ArrayList<>(FilmTitle.readStoredTitle());
 				listview.getItems().clear();
 				listview.getItems().addAll(listedTitles);
+				listview.setStyle("-fx-font-family: monospace; -fx-font-weight: bold;");
 
 				// Show status msg
 				if(succes)

@@ -41,6 +41,7 @@ public class ControllerStoredDescriptions {
 	{
 		// Puts the titles contained in an ArrayList in a list
 		listview.getItems().addAll(listedDescriptions);
+		listview.setStyle("-fx-font-family: monospace; -fx-font-weight: bold;");
 	}
 
 	@FXML
@@ -86,6 +87,7 @@ public class ControllerStoredDescriptions {
 				ArrayList<String> listedDescriptions = new ArrayList<>(FilmDescription.readStoredDescription());
 				listview.getItems().clear();
 				listview.getItems().addAll(listedDescriptions);
+				listview.setStyle("-fx-font-family: monospace;");
 
 				// Show status msg
 				if(succes)
