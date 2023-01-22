@@ -4,6 +4,7 @@ import classes.FilmTitle;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -11,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
@@ -27,22 +29,19 @@ public class ControllerStoredTitles {
 	@FXML
 	private GridPane gridPaneGenerateTitle;
 
-	@FXML
-	private TableColumn<?, ?> storedTitles;
-	
     @FXML
-    private TableView<String> tableTitles;
+    private ListView<String> titleList;
 	
 	FilmTitle title = new FilmTitle();
-	private ObservableList<String> titleList = FXCollections.observableArrayList();
+	ArrayList<String> listedTitles = new ArrayList<>(FilmTitle.readStoredTitle());
 	
 	public void initialize()
 	{
-		//titleList =  (ObservableList<title>) title.readStoredTitle();
 		
-		tableTitles.setItems(titleList);
+		// Puts the titles contained in an ArrayList in a list
+		titleList.getItems().addAll(listedTitles);
 		
-		//storedTitles.setCellFactory(rowValue -> rowValue.getValue().);
+		
 	}
 	
 

@@ -58,7 +58,7 @@ public class FilmTitle extends Film{
 	}
 
 	// Print a list of the stored titles to the user
-	public ArrayList<String> readStoredTitle()
+	public static ArrayList<String> readStoredTitle()
 	{
 		ArrayList<String> keys = myDBConnection.getTitleForeignKeys(); 	// Contains Primary Key and foreign keys from database
 		ArrayList<String> titles = new ArrayList<>(); 					// Here we will store the merged titles
@@ -75,7 +75,7 @@ public class FilmTitle extends Film{
 			String word1 = capitalize(myDBConnection.getWordByFK(Integer.parseInt(parts[2])));
 			String word2 = capitalize(myDBConnection.getWordByFK(Integer.parseInt(parts[3])));
 
-			String mergedTitle=String.format("    %5d Genre: %-12s | Title:  "+word1+ " " +word2,(i+1), genre); 
+			String mergedTitle=String.format("%5d Genre: %-12s | Title:  "+word1+ " " +word2,(i+1), genre); 
 			titles.add(mergedTitle); // Add title to ArrayList
 		}
 

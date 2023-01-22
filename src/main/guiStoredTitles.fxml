@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -28,11 +27,7 @@
 			</rowConstraints>
 			<children>
 				<Button fx:id="backToMain" mnemonicParsing="false" onAction="#onClickToMain" text="Back to main" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-            <TableView fx:id="tableTitles" prefHeight="90.0" prefWidth="652.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="3">
-              <columns>
-                <TableColumn fx:id="storedTitles" maxWidth="800.0" prefWidth="695.0" text="C1" />
-              </columns>
-            </TableView>
+            <ListView fx:id="titleList" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
 			</children>
 		</GridPane>
 	</children>
