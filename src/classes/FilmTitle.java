@@ -2,6 +2,9 @@ package classes;
 
 import java.util.ArrayList;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class FilmTitle extends Film{
 
 	private String generatedTitle; 	// Store generated title
@@ -75,7 +78,7 @@ public class FilmTitle extends Film{
 			String word1 = capitalize(myDBConnection.getWordByFK(Integer.parseInt(parts[2])));
 			String word2 = capitalize(myDBConnection.getWordByFK(Integer.parseInt(parts[3])));
 
-			String mergedTitle=String.format("%5d Genre: %-12s | Title:  "+word1+ " " +word2,(i+1), genre); 
+			String mergedTitle=String.format("%5d Genre: %-15s | Title:  "+word1+ " " +word2,(i+1), genre); 
 			titles.add(mergedTitle); // Add title to ArrayList
 		}
 		return titles;
@@ -85,9 +88,7 @@ public class FilmTitle extends Film{
 	public void showFormattedTitle()
 	{
 		System.out.println("\n    Generated film title:");
-		printFormattingLine(generatedTitle.length());		// Dynamic line as long as the title
 		System.out.println("    "+generatedTitle);			// Print the title
-		printFormattingLine(generatedTitle.length());
 		titleOptions();										// What can the user do with the title
 	}
 
@@ -117,18 +118,23 @@ public class FilmTitle extends Film{
 	}
 
 	// Save generated title to the database
-	private void storeGeneratedTitle() {
+	public void storeGeneratedTitle() {
 		int userChoiceGenre=assignGenre(); // Ask genre to assign
 		boolean success=myDBConnection.insertTitleIndex(userChoiceGenre, this.getfkOfWord(), this.getfkOfWord_2());
 		if(success)
 		{
-			System.out.println("\n    Title saved");
+			Alert msg = new Alert(AlertType.INFORMATION);
+			msg.setHeaderText("Title saved");
+			msg.setTitle("Saved");
+			msg.showAndWait();
 		}
 		else
 		{
-			System.out.println("\n    Title not saved due problem with database");
+			Alert msg = new Alert(AlertType.ERROR);
+			msg.setHeaderText("Title not saved due problem with database");
+			msg.setTitle("Error");
+			msg.showAndWait();
 		}
-		pressKeyToContinue();
 	}
 
 	// Needed for FilmTitleDescription class

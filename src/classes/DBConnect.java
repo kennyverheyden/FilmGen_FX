@@ -335,9 +335,7 @@ public class DBConnect {
 	// Read records of a table (ArrayList getters)
 	private void readTable(ArrayList<String> table, String name)
 	{
-		Film.printFormattingLine(name.length()+1);
 		System.out.println("    "+name);
-		Film.printFormattingLine(name.length()+1);
 		System.out.print("\n    | "); // Formatting
 		for(int i=0;i<table.size();i++)
 		{

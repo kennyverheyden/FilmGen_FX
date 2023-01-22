@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="generateTitlePane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControllerGenerateTitle">
 	<children>
-		<GridPane fx:id="gridPaneGenerateTitle" prefHeight="500.0" prefWidth="750.0" style="-fx-background-color: #2145D9;">
+		<GridPane fx:id="gridPaneGenerateTitle" prefHeight="550.0" prefWidth="830.0" style="-fx-background-color: #2145D9;">
 			<columnConstraints>
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="210.0" />

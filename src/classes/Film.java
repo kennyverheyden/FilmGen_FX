@@ -1,12 +1,16 @@
 package classes;
 
 import java.io.FileWriter;
+
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Random;
 import java.util.Scanner;
-
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextInputDialog;
+import javafx.stage.StageStyle;
 import javafx.scene.control.Alert.AlertType;
 
 public abstract class Film {
@@ -44,7 +48,6 @@ public abstract class Film {
 		}		
 	}
 
-
 	// Random picker in the ArrayList
 	public int randomPicker(ArrayList<String> obj)
 	{
@@ -53,95 +56,69 @@ public abstract class Film {
 		return randomNum;
 	}
 
-	// Dynamic line
-	public static void printFormattingLine(int length) // Take e.g string.length() 
-	{
-		System.out.print("    "); 		// Formatting: add extra space before line
-		for(int i=0;i<length-1;i++)  	// Extend dynamic the line as long as the string
-		{
-			System.out.print("-");	
-		}
-		System.out.println(); 			// New line
-	}
-
-	// Dynamic line - Get size for line by largest word length in ArrayList
-	public static int getSizeLargestWord(ArrayList<String> list)
-	{
-		int size=0; // Store length of largest word
-		for(int i=0;i<list.size();i++)  	
-		{
-			if(list.get(i).length()>size) // Read ArrayList and get length of each String
-			{
-				size=list.get(i).length();
-			}
-		}
-		return size;
-	}
-
 	// Ask random genre (category) or choose a genre
 	public int assignGenre()
 	{
 		int genre;
-		System.out.println("\n    Assign genre:");
-		System.out.println("");
-		System.out.println("    [1] Let the computer pick a random genre");
-		System.out.println("    [2] Choose a genre");
-		System.out.println("");
-		System.out.print("    Choice: ");
 
-		String input=userInput.nextLine(); // Get userChoice number
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setHeaderText("Let the computer pick a random genre?");
+		alert.setTitle("Genre");
+		alert.getButtonTypes().remove(0,2);
+		alert.getButtonTypes().add(0, ButtonType.YES);
+		alert.getButtonTypes().add(1, ButtonType.NO);
 
-		// Avoid error when user type not a valid number
-		while (!input.equals("1") && !input.equals("2"))
+		Optional<ButtonType> confirmationResponse = alert.showAndWait();
+		if(confirmationResponse.get() ==ButtonType.YES)
 		{
-			System.out.print("\n    Enter a valid number: ");
-			input=userInput.nextLine();
-		}
-		switch(input) {
-		case "1":
 			genre=this.randomGenre();
-			break;
-		case "2":
+		}
+		else
+		{
 			genre=this.askGenre();
-			break;
-		default :
-			genre=this.randomGenre();
-			break;
 		}
+
 		return Integer.parseInt(myDBConnection.getCategorie_ids().get(genre-1)); // Get PK from categories for foreign key
 	}
 
 	// Ask genre (category)
 	public int askGenre()
 	{
+		// Prepare String of genres
+		StringBuilder str = new StringBuilder();
+		String msg;
+		// Retrieve genres
 		ArrayList<String> cat = myDBConnection.getCategories();
-		System.out.println("\n    Assign one of the following genres.");
-		System.out.println("");  // new line
-		System.out.print("   "); // add some spaces before line
+
+		// Make String of genres
 		for(int i=0;i<cat.size();i++)
 		{
-			System.out.print(" "+(i+1)+ "="+capitalize(cat.get(i))+" ");
-			if(i>3 && i%5==0) {System.out.print("\n   ");}; // add new line for readability
+			str.append((i+1)+ "="+capitalize(cat.get(i))+" ");
 		}
-		System.out.print("\n    Assign genre number: ");
-		// Ask user choice
+		msg=str.toString();
 
-		String input = userInput.nextLine();
+		// Get choice
+		boolean invalid = true;
+		String choice = null;
 		int userChoiceGenre=0;
-		if(isInteger(input)) // Avoid error when user only press enter
-		{
-			userChoiceGenre=Integer.parseInt(input);
-		}
-
 		// As long as input is integer
 		// Input choice is not 0, because PK in DB starts from 1
 		// Input choice not bigger than highest PK in DB (Size arrayList categories)
-		while (!isInteger(input) || userChoiceGenre==0 || userChoiceGenre>cat.size()) {
-			System.out.print("\n    Enter a valid number: ");
-			input = userInput.nextLine();
-			if(isInteger(input)) // Avoid error when user only press enter
+		while(invalid || userChoiceGenre>cat.size() || userChoiceGenre<=0)
+		{
+			// Show genres and ask choice
+			TextInputDialog inputdialog = new TextInputDialog("Enter choice number");
+			inputdialog.setContentText("Choice: ");
+			inputdialog.setHeaderText(msg);
+			inputdialog.getDialogPane().lookupButton(ButtonType.CANCEL).setVisible(false);
+			inputdialog.initStyle(StageStyle.UNDECORATED);
+			inputdialog.getDialogPane().setMaxWidth(350); 
+			inputdialog.showAndWait();
+			choice=inputdialog.getEditor().getText(); 
+			if(isInteger(choice))
 			{
-				userChoiceGenre=Integer.parseInt(input);
+				userChoiceGenre = Integer.parseInt(choice); 
+				invalid=false;
 			}
 		}
 		return userChoiceGenre;
@@ -157,15 +134,16 @@ public abstract class Film {
 		while(!confirmed) // As long as the user not confirmed his choice
 		{
 			randomGenre = randomPicker(cat);
-			System.out.println("\n    Random genre: "+cat.get(randomGenre)); 	// Show random genre
-			System.out.print("    Would you like to confirm? [y/n]: "); 		// Ask for confirmation
-			input = userInput.nextLine().toLowerCase();
-			while(!input.equals("y") && !input.equals("n")) 					// Input validation
-			{
-				System.out.print("    Invalid input. Enter y or n: ");
-				input = userInput.nextLine();
-			}
-			if(input.equals("y"))
+
+			// Ask for confirmation
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setHeaderText("Computer chose: "+cat.get(randomGenre)+", would you like to confirm?");
+			alert.setTitle("Confirm");
+			alert.getButtonTypes().remove(0,2);
+			alert.getButtonTypes().add(0, ButtonType.YES);
+			alert.getButtonTypes().add(1,ButtonType.NO);
+			Optional<ButtonType> confirmationResponse = alert.showAndWait();
+			if(confirmationResponse.get() == ButtonType.YES)
 			{
 				confirmed=true;
 			}

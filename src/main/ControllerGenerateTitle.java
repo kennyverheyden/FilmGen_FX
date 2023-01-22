@@ -45,7 +45,7 @@ public class ControllerGenerateTitle {
 
     @FXML
     void onClickSaveToDB(ActionEvent event) {
-
+    	title.storeGeneratedTitle();
     }
 
     @FXML

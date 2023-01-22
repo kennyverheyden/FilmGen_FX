@@ -2,6 +2,9 @@ package classes;
 
 import java.util.ArrayList;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class FilmTitleDescription extends Film{
 
 	FilmTitle title = new FilmTitle(); 						// Title logic
@@ -26,18 +29,6 @@ public class FilmTitleDescription extends Film{
 		return success;
 	}
 
-	// Show the generated film title and description
-	public void showFormattedTitleDescription()
-	{
-		System.out.println("\n    Generated film:");
-		printFormattingLine(generatedDescription.length());					// Dynamic line as long as the description
-		System.out.println("    Title:\n    "+generatedTitle);				// Print the title
-		printFormattingLine(generatedTitle.length());						// Dynamic line as long as the title
-		System.out.println("    Description:\n    "+generatedDescription);	// Print the description
-		printFormattingLine(generatedDescription.length());					// Dynamic line as long as the description
-		titleDescriptionOptions();
-	}
-
 	// User generate new title
 	public void generateNewTitle()
 	{
@@ -50,47 +41,8 @@ public class FilmTitleDescription extends Film{
 		this.generatedDescription=description.generateDescription();
 	}
 
-	// Generated film options, regenerate and store in DB)
-	private void titleDescriptionOptions()
-	{
-		System.out.println("");
-		System.out.println("    [1] Generate another film");
-		System.out.println("    [2] Generate another title");
-		System.out.println("    [3] Generate another description");
-		System.out.println("    [4] Save the generated film");
-		System.out.println("\n    Press just enter for main menu");
-		System.out.println("");
-		System.out.print("    Choice: ");
-		String userChoice = userInput.nextLine().toLowerCase();
-
-		switch(userChoice) {
-		case "1":
-			// Generate another film (title and description)
-			generateNewTitle();
-			generateNewDescription();
-			this.showFormattedTitleDescription();
-			break;
-		case "2":
-			// Generate another title
-			generateNewTitle();
-			this.showFormattedTitleDescription();
-			break;
-		case "3":
-			// Generate another description
-			generateNewDescription();
-			this.showFormattedTitleDescription();
-			break;
-		case "4":
-			// Save film to the database
-			this.storeGeneratedFilmDescription();
-			break;
-		default:
-			break;
-		}
-	}
-
 	// Save generated film to the database
-	private void storeGeneratedFilmDescription() {
+	public void storeGeneratedFilmDescription() {
 		// Ask genre to assign
 		int userChoiceGenre=assignGenre();
 
@@ -108,13 +60,18 @@ public class FilmTitleDescription extends Film{
 		boolean success=myDBConnection.insertFilmIndex(userChoiceGenre, fkOfWord1, fkOfWord2, fkOfhyperbolic, fkOfStory, fkOfSubject1, fkOfSubject2, fkOfVerb, fkOfSubject3, fkOfLocation);
 		if(success)
 		{
-			System.out.println("\n    Film saved");
+			Alert msg = new Alert(AlertType.INFORMATION);
+			msg.setHeaderText("Film saved");
+			msg.setTitle("Saved");
+			msg.showAndWait();
 		}
 		else
 		{
-			System.out.println("\n    Film not saved due problem with database");
+			Alert msg = new Alert(AlertType.ERROR);
+			msg.setHeaderText("Film not saved due problem with database");
+			msg.setTitle("Error");
+			msg.showAndWait();
 		}
-		pressKeyToContinue();
 	}
 
 	// Print a list of the stored films to the user
@@ -145,7 +102,7 @@ public class FilmTitleDescription extends Film{
 			String location=myDBConnection.getLocationByFK(Integer.parseInt(parts[10]));
 			// Merge
 			String mergedTitle=String.format("Genre: %-12s | Film: "+ word1 +" "+word2,genre);
-			String mergedFilm=String.format("    %5d "+ mergedTitle+"\n    Description: "+ capitalize(articleWord(hyperbolic)) +" " + hyperbolic +" "+ story +" of "+ subject1 +" and "+ subject2 + " who must "+ verb + " " + subject3 + " in " + location,(i+1)); 
+			String mergedFilm=String.format("%5d "+ mergedTitle+"\n    Description: "+ capitalize(articleWord(hyperbolic)) +" " + hyperbolic +" "+ story +" of "+ subject1 +" and "+ subject2 + " who must "+ verb + " " + subject3 + " in " + location,(i+1)); 
 			films.add(mergedFilm); // Add film to ArrayList
 		}
 		return films;

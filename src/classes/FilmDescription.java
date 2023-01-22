@@ -2,6 +2,9 @@ package classes;
 
 import java.util.ArrayList;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class FilmDescription extends Film{
 
 	private String generatedDescription; 	// Store generated description
@@ -58,7 +61,7 @@ public class FilmDescription extends Film{
 		fkOfLocation=Integer.parseInt(myDBConnection.getSubject_fks().get(locations.indexOf(location)));
 
 		//  Build the String with the fields in the template String
-		generatedDescription=  capitalize(articleWord(hyperbolic)) +" "+ hyperbolic + " " +story+ " of "+ subject1 + " and " + subject2 + "\nwho must " + verb + " " + subject3 + " in "+ location; 
+		generatedDescription=  capitalize(articleWord(hyperbolic)) +" "+ hyperbolic + " " +story+ " of "+ subject1 + "\nand " + subject2 + " who must " + verb + "\n" + subject3 + " in "+ location; 
 
 		return generatedDescription;
 	}
@@ -86,59 +89,30 @@ public class FilmDescription extends Film{
 			String subject3=myDBConnection.getSubjectByFK(Integer.parseInt(parts[7]));
 			String location=myDBConnection.getLocationByFK(Integer.parseInt(parts[8]));
 			// Merge
-			String mergedDescription=String.format("    %5d Genre: %-12s | "+ capitalize(articleWord(hyperbolic)) + " "+ hyperbolic + " " + story + " of "+ subject1 +" and "+ subject2 +" who must "+ verb +" "+ subject3 + " in "+ location, (i+1),genre); 
+			String mergedDescription=String.format("%4d Genre: %-15s | "+ capitalize(articleWord(hyperbolic)) + " "+ hyperbolic + " " + story + " of "+ subject1 +" and "+ subject2 +" who must "+ verb +" "+ subject3 + " in "+ location, (i+1),genre); 
 			descriptions.add(mergedDescription); // Add description to ArrayList
 		}
 		return descriptions;
 	}
 
-	// Print generated description to the user
-	public void showFormattedDescription()
-	{
-		System.out.println("\n    Generated film description:");
-		printFormattingLine(generatedDescription.length());			// Dynamic line as long as the description
-		System.out.println("    "+generatedDescription);			// Print the description
-		printFormattingLine(generatedDescription.length());
-		descriptionOptions();										// What can the user do with the description
-	}
-
-	// Generated description options, regenerate and store in DB
-	private void descriptionOptions()
-	{
-		System.out.println("");
-		System.out.println("    [1] Generate another description");
-		System.out.println("    [2] Save the generated description");
-		System.out.println("\n    Press just enter for main menu");
-		System.out.println("");
-		System.out.print("   Choice: ");
-
-		String userChoice= userInput.nextLine().toLowerCase();
-		switch(userChoice) {
-		case "1":
-			this.generatedDescription=this.generateDescription();
-			this.showFormattedDescription();
-			break;
-		case "2":
-			this.storeGeneratedDescription();
-			break;
-		default:
-			break;
-		}
-	}
-
 	// Save generated description to the database
-	private void storeGeneratedDescription() {
+	public void storeGeneratedDescription() {
 		int userChoiceGenre=assignGenre(); // Ask genre to assign
 		boolean success=myDBConnection.insertDescriptionIndex(userChoiceGenre, fkOfhyperbolic, fkOfStory, fkOfSubject1, fkOfSubject2, fkOfVerb, fkOfSubject3, fkOfLocation);
 		if(success)
 		{
-			System.out.println("\n    Description saved");
+			Alert msg = new Alert(AlertType.INFORMATION);
+			msg.setHeaderText("Description saved");
+			msg.setTitle("Saved");
+			msg.showAndWait();
 		}
 		else
 		{
-			System.out.println("\n    Description not saved due problem with database");
+			Alert msg = new Alert(AlertType.ERROR);
+			msg.setHeaderText("Description not saved due problem with database");
+			msg.setTitle("Error");
+			msg.showAndWait();
 		}
-		pressKeyToContinue();
 	}
 
 	// Needed for FilmTitleDescription class

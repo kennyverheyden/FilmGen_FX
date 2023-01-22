@@ -59,7 +59,7 @@ public class ControllerGenerateFilm {
 
 	@FXML
 	public void onClickSaveToDB(ActionEvent event) {
-
+		film.storeGeneratedFilmDescription();
 	}
 
 	@FXML

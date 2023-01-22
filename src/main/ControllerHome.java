@@ -69,21 +69,27 @@ public class ControllerHome {
 
 	@FXML
 	public void onClickStoredTitles(ActionEvent event) throws IOException {
-	AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStoredTitles.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStoredTitles.fxml"));
 		rootPane.getChildren().setAll(pane); // load in same window
 	}
-	
-    @FXML
-    void onClickStoredFilms(ActionEvent event) throws IOException {
-    	AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStoredFilms.fxml"));
-		rootPane.getChildren().setAll(pane); // load in same window
-    }
 
-    @FXML
-    void onClickStoredDescriptions(ActionEvent event) throws IOException {
-    	AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStoredDescriptions.fxml"));
+	@FXML
+	void onClickStoredFilms(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStoredFilms.fxml"));
 		rootPane.getChildren().setAll(pane); // load in same window
-    }
+	}
+
+	@FXML
+	void onClickStoredDescriptions(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStoredDescriptions.fxml"));
+		rootPane.getChildren().setAll(pane); // load in same window
+	}
+
+	@FXML
+	void onClickStats(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStats.fxml"));
+		rootPane.getChildren().setAll(pane); // load in same window
+	}
 
 	// Button EXIT
 	@FXML

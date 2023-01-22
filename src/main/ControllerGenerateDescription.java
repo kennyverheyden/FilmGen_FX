@@ -46,7 +46,7 @@ public class ControllerGenerateDescription {
 
 	@FXML
 	void onClickSaveToDB(ActionEvent event) {
-
+		description.storeGeneratedDescription();
 	}
 
 	@FXML

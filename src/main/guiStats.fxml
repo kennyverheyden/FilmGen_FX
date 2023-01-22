@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="statsPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControllerStats">
+	<children>
+		<GridPane fx:id="gridPaneStats" prefHeight="550.0" prefWidth="830.0" style="-fx-background-color: #2145D9;">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="241.5" minWidth="10.0" prefWidth="188.5" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="316.5" minWidth="10.0" prefWidth="287.5" />
+				<ColumnConstraints hgrow="SOMETIMES" maxWidth="374.0" minWidth="10.0" prefWidth="317.5" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints />
+				<RowConstraints />
+				<RowConstraints />
+				<RowConstraints />
+				<RowConstraints />
+				<RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints maxHeight="97.5" minHeight="10.0" prefHeight="97.5" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="52.5" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Button fx:id="btnBackToMain" mnemonicParsing="false" onAction="#onClickToMain" text="Back to main" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="20.0" prefWidth="398.0" text=" Amount of data stored in database:" textFill="YELLOW" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="nverb" minWidth="50.0" text="nverb" textFill="YELLOW" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="10" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="nword" contentDisplay="BOTTOM" minWidth="50.0" prefWidth="28.0" text="nword" textFill="YELLOW" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="10" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="nsubject" minWidth="50.0" text="nsubject" textFill="YELLOW" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="11" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="nstory" minWidth="50.0" text="nstory" textFill="YELLOW" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="11" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="nhyperbolic" minWidth="50.0" text="nhyperbolic" textFill="YELLOW" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="12" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="nloc" minWidth="50.0" text="nloc" textFill="YELLOW" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="12" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="nfilm" minWidth="50.0" text="nfilm" textFill="YELLOW" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="13" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="ngenre" minWidth="50.0" text="ngenre" textFill="YELLOW" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="13" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="ndescrip" minWidth="50.0" text="nsubject" textFill="YELLOW" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label fx:id="ntitle" minWidth="50.0" text="ntitle" textFill="YELLOW" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="14" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="79.0" text="words" textFill="YELLOW" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="10" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="70.0" text="subjects" textFill="YELLOW" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="11" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="62.0" text="locations" textFill="YELLOW" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="12" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="78.0" text="genres" textFill="YELLOW" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="13" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="162.0" text="generated titles" textFill="YELLOW" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="14" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="64.0" text="verbs" textFill="YELLOW" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="3" GridPane.rowIndex="10" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="93.0" text="hyperbolics" textFill="YELLOW" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="3" GridPane.rowIndex="12" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="264.0" text=" generated films (title + descripton)" textFill="YELLOW" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="3" GridPane.rowIndex="13" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="125.0" text="generated subjecs" textFill="YELLOW" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="3" GridPane.rowIndex="14" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="17.0" prefWidth="64.0" text="stories" textFill="YELLOW" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="3" GridPane.rowIndex="11" GridPane.valignment="TOP">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+			</children>
+		</GridPane>
+	</children>
+</AnchorPane>
