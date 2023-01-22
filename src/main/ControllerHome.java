@@ -1,6 +1,5 @@
 package main;
 
-
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
@@ -20,16 +19,16 @@ import javafx.scene.control.Button;
 public class ControllerHome {
 
 	@FXML
-	private Button exit;
+	private Button btnExit;
 
 	@FXML
-	private Button generateDescription;
+	private Button btnGenerateDescription;
 
 	@FXML
-	private Button generateFilm;
+	private Button btnGenerateFilm;
 
 	@FXML
-	private Button generateTitle;
+	private Button btnGenerateTitle;
 
 	@FXML
 	private GridPane gridPaneHome;
@@ -41,13 +40,13 @@ public class ControllerHome {
 	private AnchorPane rootPane; // Needed for loading another pane, id of Anchor in fxml
 
 	@FXML
-	private Button storedDescriptions;
+	private Button btnStoredDescriptions;
 
 	@FXML
-	private Button storedFilms;
+	private Button btnStoredFilms;
 
 	@FXML
-	private Button storedTitles;
+	private Button btnStoredTitles;
 
 
 	@FXML
@@ -73,6 +72,18 @@ public class ControllerHome {
 	AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStoredTitles.fxml"));
 		rootPane.getChildren().setAll(pane); // load in same window
 	}
+	
+    @FXML
+    void onClickStoredFilms(ActionEvent event) throws IOException {
+    	AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStoredFilms.fxml"));
+		rootPane.getChildren().setAll(pane); // load in same window
+    }
+
+    @FXML
+    void onClickStoredDescriptions(ActionEvent event) throws IOException {
+    	AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStoredDescriptions.fxml"));
+		rootPane.getChildren().setAll(pane); // load in same window
+    }
 
 	// Button EXIT
 	@FXML

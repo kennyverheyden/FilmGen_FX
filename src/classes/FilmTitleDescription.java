@@ -118,7 +118,7 @@ public class FilmTitleDescription extends Film{
 	}
 
 	// Print a list of the stored films to the user
-	public ArrayList<String> readStoredTitleDescription()
+	public static ArrayList<String> readStoredTitleDescription()
 	{
 
 		ArrayList<String> keys = myDBConnection.getFilmForeignKeys();  	// Contains Primary Key and foreign keys from database
@@ -148,38 +148,6 @@ public class FilmTitleDescription extends Film{
 			String mergedFilm=String.format("    %5d "+ mergedTitle+"\n    Description: "+ capitalize(articleWord(hyperbolic)) +" " + hyperbolic +" "+ story +" of "+ subject1 +" and "+ subject2 + " who must "+ verb + " " + subject3 + " in " + location,(i+1)); 
 			films.add(mergedFilm); // Add film to ArrayList
 		}
-
-		//		// Print the films from the ArrayList
-		//		System.out.println("");
-		//		if(!keys.isEmpty())
-		//		{
-		//			System.out.println("    Stored generated films (title + description):");
-		//		}
-		//		else
-		//		{
-		//			System.out.println("    Nothing saved");
-		//		}
-		//		System.out.println("");
-
-
-		// Show options to the user
-		//		String userChoice;
-		//		System.out.println("    [1] Delete a film");
-		//		System.out.println("    [2] Save to file");
-		//		System.out.println("\n    Press just enter for main menu");
-		//		System.out.println("");
-		//		System.out.print("    Choice: ");
-		//		userChoice=userInput.nextLine().toLowerCase();
-		//		switch(userChoice) {
-		//		case "1":
-		//			filmTitleDes.deleteItem(pkListFilm);
-		//			break;
-		//		case "2":
-		//			writeToFile(objName,films);
-		//			break;
-		//		default:
-		//			break;
-		//		}
 		return films;
 	}
 
@@ -189,6 +157,10 @@ public class FilmTitleDescription extends Film{
 
 	public String getGeneratedDescription() {
 		return generatedDescription;
+	}
+	
+	public String getObjName() {
+		return objName;
 	}
 
 }

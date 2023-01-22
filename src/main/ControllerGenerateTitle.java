@@ -14,19 +14,19 @@ import javafx.scene.text.Text;
 public class ControllerGenerateTitle {
 
     @FXML
-    private Button backToMain;
+    private Button btnBackToMain;
 
     @FXML
     private AnchorPane generateTitlePane;
 
     @FXML
-    private Button generatetitle;
+    private Button btnGeneratetitle;
 
     @FXML
     private GridPane gridPaneGenerateTitle;
 
     @FXML
-    private Button saveToDB;
+    private Button btnSaveToDB;
 
     @FXML
     private Text titleText;

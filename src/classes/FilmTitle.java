@@ -78,50 +78,6 @@ public class FilmTitle extends Film{
 			String mergedTitle=String.format("%5d Genre: %-12s | Title:  "+word1+ " " +word2,(i+1), genre); 
 			titles.add(mergedTitle); // Add title to ArrayList
 		}
-
-//		// Print the titles from the ArrayList
-//		System.out.println("");
-//		if(!keys.isEmpty())
-//		{
-//			System.out.println("    Stored separately generated titles:");
-//		}
-//		else
-//		{
-//			System.out.println("    Nothing saved");
-//		}
-//		System.out.println("");
-//		for(int i=0;i<titles.size();i++)
-//		{
-//			if(i==0)
-//			{
-//				// Dynamic line - Get size for line by largest word length in ArrayList
-//				printFormattingLine(getSizeLargestWord(titles)-1);
-//			}
-//			System.out.println(titles.get(i));
-//			// Dynamic line - Get size for line by largest word length in ArrayList
-//			printFormattingLine(getSizeLargestWord(titles)-1);
-//
-//		}
-//		System.out.println("");
-
-//		// Show options to the user
-//		String userChoice;
-//		System.out.println("    [1] Delete a title");
-//		System.out.println("    [2] Save to file");
-//		System.out.println("\n    Press just enter for main menu");
-//		System.out.println("");
-//		System.out.print("    Choice: ");
-//		userChoice=userInput.nextLine().toLowerCase();
-//		switch(userChoice) {
-//		case "1":
-//			filmTit.deleteItem(pkListTitle);
-//			break;
-//		case "2":
-//			writeToFile(objName,titles);
-//			break;
-//		default:
-//			break;
-//		}
 		return titles;
 	}
 
@@ -186,6 +142,10 @@ public class FilmTitle extends Film{
 
 	public int getfkOfWord_2() {
 		return fkOfWord_2;
+	}
+	
+	public String getObjName() {
+		return objName;
 	}
 
 }

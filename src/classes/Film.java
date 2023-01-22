@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public abstract class Film {
 
 	// PARENT CLASS
@@ -29,39 +32,18 @@ public abstract class Film {
 	}
 
 	// Delete item from Title or Description table
-	public void deleteItem(ArrayList<Integer> pkList) {
-		System.out.print("\n    Delete item: ");
-		String input=userInput.nextLine(); // Get userChose number
-		if(!pkList.isEmpty())
+	public boolean deleteItem(ArrayList<Integer> pkList, int id) {
+		int pk = pkList.get((id));
+		if(executeDelete(pk))
 		{
-			// As long as input is integer
-			// Input choice is not 0, because PK in DB starts from 1
-			// Input choice not bigger than highest PK in DB (Size arrayList)
-			while (!isInteger(input) || input.equals("0") || Integer.parseInt(input)>pkList.size()) 
-			{
-				System.out.print("    Enter a valid number: ");
-				input=userInput.nextLine();
-			}
-			int pk = pkList.get((Integer.parseInt(input)-1));
-
-			if(executeDelete(pk))
-			{
-				System.out.println("    Chosen item deleted");
-				pressKeyToContinue();
-			}
-			else
-			{
-				System.out.println("    Item not deleted due database error");
-				pressKeyToContinue();
-			}
-			System.out.println("");
+			return true;
 		}
 		else
 		{
-			System.out.println("\n    No stored items in database");
-			pressKeyToContinue();
-		}
+			return false;
+		}		
 	}
+
 
 	// Random picker in the ArrayList
 	public int randomPicker(ArrayList<String> obj)
@@ -252,12 +234,16 @@ public abstract class Film {
 				writer.write(System.lineSeparator());
 			}
 			writer.close();
-			System.out.println("\n    Successfully wrote to the file: FilmGen-"+name+"s.txt");
-			pressKeyToContinue();
+			Alert msg = new Alert(AlertType.INFORMATION);
+			msg.setHeaderText("Successfully wrote to the file: FilmGen-"+name+"s.txt");
+			msg.setTitle("Succes");
+			msg.showAndWait();
 		} catch (IOException e) {
-			System.out.println("\n    An error occurred.");
+			Alert msg = new Alert(AlertType.ERROR);
+			msg.setHeaderText("An error occurred.");
+			msg.setTitle("Error");
+			msg.showAndWait();
 			e.printStackTrace();
-			pressKeyToContinue();
 		}
 	}
 

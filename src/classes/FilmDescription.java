@@ -64,7 +64,7 @@ public class FilmDescription extends Film{
 	}
 
 	// Print a list of the stored descriptions to the user
-	public void readStoredDescription()
+	public static ArrayList<String> readStoredDescription()
 	{
 		ArrayList<String> keys = myDBConnection.getDescriptionForeignKeys();// Contains Primary Key and foreign keys from database
 		ArrayList<String> descriptions = new ArrayList<>(); 				// Here we will store the merged descriptions
@@ -89,50 +89,7 @@ public class FilmDescription extends Film{
 			String mergedDescription=String.format("    %5d Genre: %-12s | "+ capitalize(articleWord(hyperbolic)) + " "+ hyperbolic + " " + story + " of "+ subject1 +" and "+ subject2 +" who must "+ verb +" "+ subject3 + " in "+ location, (i+1),genre); 
 			descriptions.add(mergedDescription); // Add description to ArrayList
 		}
-
-		// Print the descriptions from the ArrayList
-		System.out.println("");
-		if(!keys.isEmpty())
-		{
-			System.out.println("    Stored separately generated descriptions:");
-		}
-		else
-		{
-			System.out.println("    Nothing saved");
-		}
-		System.out.println("");
-		for(int i=0;i<descriptions.size();i++)
-		{
-			if(i==0)
-			{
-				// Dynamic line - Get size for line by largest word length in ArrayList
-				printFormattingLine(getSizeLargestWord(descriptions)-1);
-			}
-			System.out.println(descriptions.get(i));
-			// Dynamic line - Get size for line by largest word length in ArrayList
-			printFormattingLine(getSizeLargestWord(descriptions)-1);
-
-		}
-		System.out.println("");
-
-		// Show options to the user
-		String userChoice;
-		System.out.println("    [1] Delete a description");
-		System.out.println("    [2] Save to file");
-		System.out.println("\n    Press just enter for main menu");
-		System.out.println("");
-		System.out.print("    Choice: ");
-		userChoice=userInput.nextLine().toLowerCase();
-		switch(userChoice) {
-		case "1":
-			filmDes.deleteItem(pkListDescription);
-			break;
-		case "2":
-			writeToFile(objName,descriptions);
-			break;
-		default:
-			break;
-		}
+		return descriptions;
 	}
 
 	// Print generated description to the user
@@ -219,6 +176,10 @@ public class FilmDescription extends Film{
 
 	public int getfkOfLocation() {
 		return fkOfLocation;
+	}
+
+	public String getObjName() {
+		return objName;
 	}
 
 }

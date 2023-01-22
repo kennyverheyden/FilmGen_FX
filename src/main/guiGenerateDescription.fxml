@@ -37,9 +37,9 @@
 						<Font name="Arial Black" size="12.0" />
 					</font>
 				</Text>
-				<Button fx:id="generatedescription" mnemonicParsing="false" onAction="#onClickGenerateDescription" text="Generate another description" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-				<Button fx:id="saveToDB" mnemonicParsing="false" onAction="#onClickSaveToDB" text="Save to database" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-				<Button fx:id="backToMain" mnemonicParsing="false" onAction="#onClickToMain" text="Back to main" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+				<Button fx:id="btnGeneratedescription" mnemonicParsing="false" onAction="#onClickGenerateDescription" text="Generate another description" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+				<Button fx:id="btnSaveToDB" mnemonicParsing="false" onAction="#onClickSaveToDB" text="Save to database" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+				<Button fx:id="btnBackToMain" mnemonicParsing="false" onAction="#onClickToMain" text="Back to main" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
 			</children>
 		</GridPane>
 	</children>

@@ -15,7 +15,7 @@ import javafx.scene.text.Text;
 public class ControllerGenerateDescription {
 
 	@FXML
-	private Button backToMain;
+	private Button btnBackToMain;
 
 	@FXML
 	private Text descriptionText;
@@ -24,13 +24,13 @@ public class ControllerGenerateDescription {
 	private AnchorPane generateDescriptionPane;
 
 	@FXML
-	private Button generatedescription;
+	private Button btnGeneratedescription;
 
 	@FXML
 	private GridPane gridPaneGenerateDescription;
 
 	@FXML
-	private Button saveToDB;
+	private Button btnSaveToDB;
 
 	private FilmDescription description = new FilmDescription(); // Create object
 	

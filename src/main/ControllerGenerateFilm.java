@@ -14,7 +14,7 @@ import javafx.scene.text.Text;
 public class ControllerGenerateFilm {
 
 	@FXML
-	private Button backToMain;
+	private Button btnBackToMain;
 
 	@FXML
 	private Text descriptionText;
@@ -23,16 +23,16 @@ public class ControllerGenerateFilm {
 	private AnchorPane generateFilmPane;
 
 	@FXML
-	private Button generatedescription;
+	private Button btnGeneratedescription;
 
 	@FXML
-	private Button generatetitle;
+	private Button btnGeneratetitle;
 
 	@FXML
 	private GridPane gridPaneGenerateTitle; // Needed for loading another pane, id of Anchor in fxml
 
 	@FXML
-	private Button saveToDB;
+	private Button btnSaveToDB;
 
 	@FXML
 	private Text titleText;
