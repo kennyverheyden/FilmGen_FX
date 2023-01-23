@@ -11,7 +11,7 @@
 
 <AnchorPane fx:id="storedTitlesPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControllerStoredTitles">
 	<children>
-		<GridPane fx:id="gridPaneStoredTitles" prefHeight="550.0" prefWidth="830.0" style="-fx-background-color: #2145D9;">
+		<GridPane fx:id="gridPaneStoredTitles" prefHeight="800" prefWidth="1000.0" style="-fx-background-color: #2145D9;">
 			<columnConstraints>
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="210.0" />

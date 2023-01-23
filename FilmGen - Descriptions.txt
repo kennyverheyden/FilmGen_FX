@@ -1,24 +1,38 @@
 FilmGen - Descriptions
 
-        1 Genre: Travel       | An epic documentary of a pastry chef and a frisbee who must chase a pastry chef in the Gulf of Mexico
+   1 Genre: Travel       
+     An epic documentary of a pastry chef and a frisbee who must chase a pastry chef in the Gulf of Mexico
 
-        2 Genre: Action       | A fast-paced drama of a lumberjack and a lumberjack who must sink a database administrator in a shark tank
+   2 Genre: Action       
+     A fast-paced drama of a lumberjack and a lumberjack who must sink a database administrator in a shark tank
 
-        3 Genre: Sci-fi       | An epic epistle of a pastry chef and a frisbee who must sink a lumberjack in a shark tank
+   3 Genre: Travel       
+     A fast-paced reflection of a database administrator and a lumberjack who must find a pastry chef in Ancient China
 
-        4 Genre: Travel       | A fast-paced reflection of a database administrator and a lumberjack who must find a pastry chef in Ancient China
+   4 Genre: New          
+     A fanciful panorama of a high school student and a soldier who must battle a forklift driver in a shark tank
 
-        5 Genre: New          | A fanciful panorama of a high school student and a soldier who must battle a forklift driver in a shark tank
+   5 Genre: Action       
+     A fantastic drama of a forklift driver and John Doe who must find The President of the United States in Morocco
 
-        6 Genre: Action       | A fantastic drama of a forklift driver and John Doe who must find The President of the United States in Morocco
+   6 Genre: Travel       
+     An epic reflection of God and a soldier who must sink an AI in Mars
 
-        7 Genre: Travel       | An epic reflection of God and a soldier who must sink an AI in Mars
+   7 Genre: Travel       
+     A fantastic epistle of The President of the United States and a bodyguard who must battle a high school student in Mars
 
-        8 Genre: Travel       | A fantastic epistle of The President of the United States and a bodyguard who must battle a high school student in Mars
+   8 Genre: Travel       
+     An exciting reflection of a high school student and a bard who must talk to a bard in the Gulf of Mexico
 
-        9 Genre: Comedy       | An epic musical of Kabouter Plop and a lumberjack who must flee from a lumberjack in Africa
+   9 Genre: Drama        
+     An awesome blockbuster of a forklift driver and an immovable object who must find an immovable object in Tokyo
 
-       10 Genre: Animation    | A fanciful musical of Mr. Bean and a knight who must battle a knight in Morocco
+  10 Genre: Sci-fi       
+     An awesome blockbuster of a forklift driver and an immovable object who must find an immovable object in Tokyo
 
-       11 Genre: Travel       | An exciting reflection of a high school student and a bard who must talk to a bard in the Gulf of Mexico
+  11 Genre: Travel       
+     An awesome blockbuster of a forklift driver and an immovable object who must find an immovable object in Tokyo
+
+  12 Genre: Foreign      
+     An intrepid reflection of an unstoppable force and a forklift driver who must find a forklift driver in Detroit
 
