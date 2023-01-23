@@ -32,7 +32,7 @@
 				<Button fx:id="btnStoredFilms" mnemonicParsing="false" onAction="#onClickStoredFilms" prefWidth="140.0" text="Stored films" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
 				<Button fx:id="btnStoredTitles" mnemonicParsing="false" onAction="#onClickStoredTitles" prefWidth="200.0" text="Separately stored titles" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
 				<Button fx:id="btnStoredDescriptions" mnemonicParsing="false" onAction="#onClickStoredDescriptions" prefWidth="200.0" text="Separatly stored descriptions" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-				<Button fx:id="btnOptions" mnemonicParsing="false" prefWidth="80.0" text="Options" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+				<Button fx:id="btnOptions" mnemonicParsing="false" onAction="#onClickOptions" prefWidth="80.0" text="Options" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
 				<Button fx:id="btnExit" mnemonicParsing="false" onAction="#onClickExit" prefWidth="80.0" text="Exit" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
 				<Button fx:id="btnGenerateFilm" mnemonicParsing="false" onAction="#onClickGenerateFilmStage" prefWidth="140.0" text="Generate film" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
 				<ImageView fitHeight="176.0" fitWidth="274.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
@@ -40,7 +40,7 @@
 						<Image url="@../logo.png" />
 					</image>
 				</ImageView>
-            <Button fx:id="btnStats" mnemonicParsing="false" onAction="#onClickStats" prefWidth="80.0" text="DB Stats" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+            <Button fx:id="btnStats" mnemonicParsing="false" onAction="#onClickStats" prefWidth="80.0" text="Statistics" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
 			</children>
 		</GridPane>
 	</children>

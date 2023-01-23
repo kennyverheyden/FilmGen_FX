@@ -90,6 +90,12 @@ public class ControllerHome {
 		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiStats.fxml"));
 		rootPane.getChildren().setAll(pane); // load in same window
 	}
+	
+	@FXML
+    void onClickOptions(ActionEvent event) throws IOException {
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiOptions.fxml"));
+		rootPane.getChildren().setAll(pane); // load in same window
+    }
 
 	// Button EXIT
 	@FXML

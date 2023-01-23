@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="OptionsPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControllerOptions">
+	<children>
+		<GridPane fx:id="gridPaneOptions" prefHeight="700" prefWidth="950" style="-fx-background-color: #2145D9;">
+			<columnConstraints>
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="210.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="210.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="210.0" />
+				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
+			</columnConstraints>
+			<rowConstraints>
+				<RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+				<RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+			</rowConstraints>
+			<children>
+				<Button fx:id="backToMain" mnemonicParsing="false" onAction="#onClickToMain" prefWidth="90.0" text="Back to main" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
+            <Label contentDisplay="CENTER" prefHeight="53.0" prefWidth="437.0" text="Database options" textFill="YELLOW" GridPane.columnIndex="1" GridPane.columnSpan="2">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnWords" alignment="CENTER" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickWords" prefWidth="120.0" text="Edit words" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+            <Button fx:id="btnVerbs" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickVerbs" prefWidth="120.0" text="Edit Verbs" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Button fx:id="btnSubjects" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickSubjects" prefWidth="120.0" text="Edit Subjects" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Button fx:id="btnStories" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickStories" prefWidth="120.0" text="Edit Stories" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+            <Button fx:id="btnLocations" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickLocations" prefWidth="120.0" text="Edit Locations" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="btnHyperbolics" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickHyperbolics" prefWidth="120.0" text="Edit Hyperbolics" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="btnGenres" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickGenres" prefWidth="120.0" text="Edit Genres" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+			</children>
+		</GridPane>
+	</children>
+</AnchorPane>
