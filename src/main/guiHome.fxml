@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="rootPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControllerHome">
 	<children>
@@ -27,15 +28,33 @@
 				<RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 			<children>
-				<Button fx:id="btnGenerateTitle" mnemonicParsing="false" onAction="#onClickGenerateTitleStage" prefWidth="140.0" text="Generate title" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2" />
-				<Button fx:id="btnGenerateDescription" mnemonicParsing="false" onAction="#onClickGenerateDescriptionStage" prefWidth="140.0" text="Generate description" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-				<Button fx:id="btnStoredFilms" mnemonicParsing="false" onAction="#onClickStoredFilms" prefWidth="140.0" text="Stored films" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
-				<Button fx:id="btnStoredTitles" mnemonicParsing="false" onAction="#onClickStoredTitles" prefWidth="200.0" text="Separately stored titles" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-				<Button fx:id="btnStoredDescriptions" mnemonicParsing="false" onAction="#onClickStoredDescriptions" prefWidth="200.0" text="Separatly stored descriptions" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+				<Button fx:id="btnGenerateTitle" mnemonicParsing="false" onAction="#onClickGenerateTitleStage" prefHeight="29.0" prefWidth="160.0" text="Generate title" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+				<Button fx:id="btnGenerateDescription" mnemonicParsing="false" onAction="#onClickGenerateDescriptionStage" prefHeight="29.0" prefWidth="160.0" text="Generate description" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+				<Button fx:id="btnStoredFilms" mnemonicParsing="false" onAction="#onClickStoredFilms" prefWidth="160.0" text="Stored films" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+				<Button fx:id="btnStoredTitles" mnemonicParsing="false" onAction="#onClickStoredTitles" prefWidth="220.0" text="Separately stored titles" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
+				<Button fx:id="btnStoredDescriptions" mnemonicParsing="false" onAction="#onClickStoredDescriptions" prefWidth="220.0" text="Separatly stored descriptions" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Button>
 				<Button fx:id="btnOptions" mnemonicParsing="false" onAction="#onClickOptions" prefWidth="80.0" text="Options" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
 				<Button fx:id="btnExit" mnemonicParsing="false" onAction="#onClickExit" prefWidth="80.0" text="Exit" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-				<Button fx:id="btnGenerateFilm" mnemonicParsing="false" onAction="#onClickGenerateFilmStage" prefWidth="140.0" text="Generate film" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
-				<ImageView fitHeight="176.0" fitWidth="274.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+				<Button fx:id="btnGenerateFilm" mnemonicParsing="false" onAction="#onClickGenerateFilmStage" prefWidth="160.0" text="Generate film" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
+				<ImageView fitHeight="220.0" fitWidth="443.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
 					<image>
 						<Image url="@../logo.png" />
 					</image>
