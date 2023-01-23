@@ -17,7 +17,7 @@ public class Home extends Application{
 	public void start(Stage primaryStage) throws Exception {
 
 		Parent root = FXMLLoader.load(getClass().getResource("guiHome.fxml"));
-		Scene scene = new Scene(root, 1000, 800);
+		Scene scene = new Scene(root, 950, 700);
 
 		primaryStage.setResizable(false);
 		primaryStage.setAlwaysOnTop(false);

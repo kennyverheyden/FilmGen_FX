@@ -10,7 +10,7 @@
 
 <AnchorPane fx:id="statsPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControllerStats">
 	<children>
-		<GridPane fx:id="gridPaneStats" prefHeight="800.0" prefWidth="1000.0" style="-fx-background-color: #2145D9;">
+		<GridPane fx:id="gridPaneStats" prefHeight="700" prefWidth="950" style="-fx-background-color: #2145D9;">
 			<columnConstraints>
 				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
 				<ColumnConstraints hgrow="SOMETIMES" maxWidth="241.5" minWidth="10.0" prefWidth="188.5" />
@@ -28,18 +28,18 @@
             <RowConstraints />
             <RowConstraints />
             <RowConstraints />
-            <RowConstraints maxHeight="97.5" minHeight="10.0" prefHeight="97.5" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="52.5" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="140.0" minHeight="10.0" prefHeight="140.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="90.0" minHeight="0.0" prefHeight="82.5" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="90.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="200.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 			<children>
 				<Button fx:id="btnBackToMain" mnemonicParsing="false" onAction="#onClickToMain" text="Back to main" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="14" GridPane.valignment="CENTER" />
-            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="20.0" prefWidth="398.0" text=" Amount of data stored in database:" textFill="YELLOW" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="9" GridPane.valignment="CENTER">
+            <Label alignment="BOTTOM_LEFT" contentDisplay="BOTTOM" prefHeight="53.0" prefWidth="721.0" text=" Amount of data stored in database:" textFill="YELLOW" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="LEFT" GridPane.rowIndex="9" GridPane.valignment="CENTER">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="36.0" />
                </font>
             </Label>
             <Label fx:id="nverb" minWidth="50.0" text="nverb" textFill="YELLOW" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="10" GridPane.valignment="TOP">

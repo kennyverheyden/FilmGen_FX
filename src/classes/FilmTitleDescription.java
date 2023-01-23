@@ -102,7 +102,7 @@ public class FilmTitleDescription extends Film{
 			String location=myDBConnection.getLocationByFK(Integer.parseInt(parts[10]));
 			// Merge
 			String mergedTitle=String.format("Genre: %-12s | Film: "+ word1 +" "+word2,genre);
-			String mergedFilm=String.format("%5d "+ mergedTitle+"\n      Description: "+ capitalize(articleWord(hyperbolic)) +" " + hyperbolic +" "+ story +" of "+ subject1 +" and "+ subject2 + " who must "+ verb + " " + subject3 + " in " + location,(i+1)); 
+			String mergedFilm=String.format("%3d "+ mergedTitle+"\n    Description: "+ capitalize(articleWord(hyperbolic)) +" " + hyperbolic +" "+ story +" of "+ subject1 +" and "+ subject2 + " who must "+ verb + " " + subject3 + " in " + location,(i+1)); 
 			films.add(mergedFilm); // Add film to ArrayList
 		}
 		return films;
