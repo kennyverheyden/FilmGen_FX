@@ -5,7 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Optional;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.StageStyle;
 
 public class DBConnect {
 
@@ -13,9 +18,6 @@ public class DBConnect {
 	PreparedStatement preparedStatement;
 	ResultSet resultSet;
 	String sqlQuery;
-
-	// Initialize Scanner for this class
-	Scanner dbInput = new Scanner(System.in);
 
 	// Relative path to database file
 	static String url="jdbc:sqlite:src/resources/FilmGen.sqlite?foreign_keys=on";
@@ -40,110 +42,8 @@ public class DBConnect {
 	//		}
 	//	}
 
-	// View or edit stored data in database
-	public void databaseView()
-	{
-		String userChoice="0";
-		String name="null"; // Used for table title
-		do
-		{
-			System.out.println("");
-			System.out.println("    Choose a table:");
-			System.out.println("    [1] Words");
-			System.out.println("    [2] Verbs");
-			System.out.println("    [3] Subjects");
-			System.out.println("    [4] Stories");
-			System.out.println("    [5] Locations");
-			System.out.println("    [6] Hyperbolics");
-			System.out.println("    [7] Genres");
-			System.out.println(" ");
-			System.out.println("    Press enter for main menu");
-			System.out.println("");
-			System.out.print("    Choice: ");
-			userChoice=dbInput.nextLine().toLowerCase();
-			switch(userChoice) {
-			case "1":
-				name = "Stored words";
-				readTable(getWords(),name);
-				showEditOptions("words","word");  				// Parameters tableName, columnName
-				break;
-			case "2":
-				name = "Stored verbs";
-				readTable(getVerbs(),name);
-				showEditOptions("verbs","verbs"); 				// Parameters tableName, columnName
-				break;
-			case "3":
-				name = "Stored subjects";
-				readTable(getSubjects(),name);
-				showEditOptions("subjects","subjects"); 		// Parameters tableName, columnName
-				break;
-			case "4":
-				name = "Stored stories";
-				readTable(getStories(),name);
-				showEditOptions("stories","stories"); 			// Parameters tableName, columnName
-				break;
-			case "5":
-				name = "Stored locations";
-				readTable(getLocations(),name);
-				showEditOptions("locations","location"); 		// Parameters tableName, columnName
-				break;
-			case "6":
-				name = "Stored hyperbolics";
-				readTable(getHyperbolics(),name);
-				showEditOptions("hyperbolic","hyperbolic"); 	// Parameters tableName, columnName
-				break;
-			case "7":
-				name = "Stored genres";
-				readTable(getCategories(),name);
-				showEditOptions("categories","category"); 		// Parameters tableName, columnName
-				break;
-			default :
-				break;
-			}
-		}
-		while(!userChoice.equals(""));
-		System.out.println("");
-	}
 
-	// Show edit options to the user
-	private void showEditOptions(String tableName, String columnName)
-	{
-		String userChoice;
-		System.out.println("    [1] Insert data");
-		System.out.println("    [2] Delete data");
-		System.out.println("\n    Press enter for back");
-		System.out.println("");
-		System.out.print("    Choice: ");
-		userChoice=dbInput.nextLine().toString();
-		switch(userChoice)
-		{
-		case "1":
-			// Ask value to insert in db
-			askInsertContent(tableName,columnName);		// Parameters tableName columnName
-			break;
-		case "2":
-			// Ask value to delete in db
-			askDeleteContent(tableName,columnName);		// Parameters tableName columnName
-			break;
-		default :
-			break;
-		}
-	}
-
-	// Check if userInput is integer
-	private boolean isNumeric(String str) {
-		if (str == null) {
-			return false;
-		}
-		try {
-			Integer.parseInt(str);
-			return true;
-		} catch (NumberFormatException nfe) {
-			return false;
-		}
-	}
-
-	// If the user select a record by number id - Search value by id
+	// Search value by id
 	private String getIDbyString(String tableName, int id)
 	{
 		String str=null; // Store found value to return
@@ -186,45 +86,53 @@ public class DBConnect {
 		}
 		else
 		{
-			System.out.println("\n    Invalid id number or number out of range");
+			Alert msg = new Alert(AlertType.ERROR);
+			msg.setHeaderText("Invalid id number or number out of range");
+			msg.setTitle("Error");
+			msg.showAndWait();
 		}
 		return str;
 	}
 
 	// Scan an entry from user to delete a record
-	private void askDeleteContent(String tableName, String columnName)
+	public void askDeleteContent(String tableName, String columnName, int id)
 	{
-		System.out.print("    Type value or number to delete: ");
-		String str = dbInput.nextLine().toString();
-		String value=null; // Store value to delete
-		if(!str.equals(""))
+		// Error when no item is selected
+		if(id==-1)
 		{
-			// Check if user input is String or number (Id)
-			if(isNumeric(str))
+			Alert msg = new Alert(AlertType.ERROR);
+			msg.setContentText("Select an item to delete");
+			msg.showAndWait();
+		}
+		else
+		{
+			// Box ask confirmation
+			Alert alert = new Alert(AlertType.CONFIRMATION);
+			alert.setHeaderText("Are you sure you want to delete?");
+			alert.setTitle("Confirm delete");
+			alert.getButtonTypes().remove(0,2);
+			alert.getButtonTypes().add(0, ButtonType.YES);
+			alert.getButtonTypes().add(1,ButtonType.NO);
+			Optional<ButtonType> confirmationResponse = alert.showAndWait();
+			if(confirmationResponse.get() == ButtonType.YES)
 			{
-				int id = Integer.parseInt(str);
-				value=getIDbyString(tableName,id);
-			}
-			else
-			{
-				value=str;
-			}
-			// Delete record
-			boolean succes=deleteQuery(tableName,columnName,value);
-			if(succes)
-			{
-				System.out.println("\n    Successfully deleted");
-				Film.pressKeyToContinue();
-			}
-			else
-			{
-				System.out.println("    Value not deleted\n");
-				Film.pressKeyToContinue();
+				// Lookup by id
+				id++;
+				String value=getIDbyString(tableName,id);
+				// Delete
+				boolean succes=deleteQuery(tableName,columnName,value);
+				if(succes)
+				{
+					Alert msg = new Alert(AlertType.INFORMATION);
+					msg.setHeaderText("Chosen item deleted");
+					msg.setTitle("Deleted");
+					msg.showAndWait();
+				}
 			}
 		}
 	}
 
-	// Delete a record determined by user
+	// Delete query
 	private boolean deleteQuery(String tableName, String columnName, String str)
 	{
 		sqlQuery="DELETE FROM main."+tableName+" WHERE "+columnName+" = ?";
@@ -245,52 +153,80 @@ public class DBConnect {
 		}catch(Exception e){
 			if(e.getLocalizedMessage().equals("[SQLITE_CONSTRAINT_TRIGGER] A RAISE function within a trigger fired, causing the SQL statement to abort (FOREIGN KEY constraint failed)"))
 			{
-				System.out.println("\n    This value is still used in generated films, titles or descriptions");
+				Alert msg = new Alert(AlertType.ERROR);
+				msg.setHeaderText("This value is still used in generated films, titles or descriptions");
+				msg.setTitle("Error");
+				msg.showAndWait();
+
 			}
 			else
 			{
-				System.out.println(e);
+				// Show exception
+				String error = e.toString(); // Exception to String
+				Alert msg = new Alert(AlertType.ERROR);
+				msg.setHeaderText(error);
+				msg.setTitle("Error");
+				msg.showAndWait();
 			}
 		}
 		return false;
 	}
 
 	// Scan an entry from user to insert a record to a database table
-	private void askInsertContent(String tableName, String columnName)
+	public void askInsertContent(String tableName, String columnName)
 	{
-		System.out.print("    Insert new value: ");
-		String str = dbInput.nextLine().toString();
-
-
+		// Get input
+		TextInputDialog inputdialog = new TextInputDialog("New value");
+		inputdialog.setHeaderText("Add value");
+		inputdialog.getDialogPane().lookupButton(ButtonType.CANCEL).setVisible(false);
+		inputdialog.initStyle(StageStyle.UNDECORATED);
+		inputdialog.getDialogPane().setMaxWidth(350); 
+		inputdialog.showAndWait();
+		String str=inputdialog.getEditor().getText(); 
+		// Check for max allow
 		if(!str.equals(""))
 		{
 			if(tableName.equals("words") && str.length()>15) // Max allowed length for category due formatting
 			{
-				System.out.println("\n    Error adding: max value length for "+columnName+" is 15");
+				Alert msg = new Alert(AlertType.ERROR);
+				msg.setContentText("Error adding: max value length for "+columnName+" is 15");
+				msg.showAndWait();
 			}
 			else if(tableName.equals("verbs") && str.length()>30) // Max allowed length for category due formatting
 			{
-				System.out.println("\n    Error adding: max value length for "+columnName+" is 30");
+				Alert msg = new Alert(AlertType.ERROR);
+				msg.setContentText("Error adding: max value length for "+columnName+" is 30");
+				msg.showAndWait();
 			}
 			else if(tableName.equals("subjects") && str.length()>35) // Max allowed length for category due formatting
 			{
-				System.out.println("\n    Error adding: max value length for "+columnName+" is 35");
+				Alert msg = new Alert(AlertType.ERROR);
+				msg.setContentText("Error adding: max value length for "+columnName+" is 35");
+				msg.showAndWait();
 			}
 			else if(tableName.equals("stories") && str.length()>15) // Max allowed length for category due formatting
 			{
-				System.out.println("\n    Error adding: max value length for "+columnName+" is 15");
+				Alert msg = new Alert(AlertType.ERROR);
+				msg.setContentText("Error adding: max value length for "+columnName+" is 15");
+				msg.showAndWait();
 			}
 			else if(tableName.equals("locations") && str.length()>25) // Max allowed length for category due formatting
 			{
-				System.out.println("\n    Error adding: max value length for "+columnName+" is 25");
+				Alert msg = new Alert(AlertType.ERROR);
+				msg.setContentText("Error adding: max value length for "+columnName+" is 25");
+				msg.showAndWait();
 			}
 			else if(tableName.equals("hyperbolic") && str.length()>15) // Max allowed length for category due formatting
 			{
-				System.out.println("\n    Error adding: max value length for "+columnName+" is 15");
+				Alert msg = new Alert(AlertType.ERROR);
+				msg.setContentText("Error adding: max value length for "+columnName+" is 15");
+				msg.showAndWait();
 			}
 			else if(tableName.equals("categories") && str.length()>12) // Max allowed length for category due formatting
 			{
-				System.out.println("\n    Error adding: max value length for "+columnName+" is 12");
+				Alert msg = new Alert(AlertType.ERROR);
+				msg.setContentText("Error adding: max value length for "+columnName+" is 12");
+				msg.showAndWait();
 			}
 			else
 			{
@@ -298,15 +234,18 @@ public class DBConnect {
 				boolean succes=insertQuery(sqlQuery);
 				if(succes)
 				{
-					System.out.println("\n    Successfully added");
+					Alert msg = new Alert(AlertType.INFORMATION);
+					msg.setContentText("Successfully added");
+					msg.showAndWait();
 				}
 				else
 				{
-					System.out.println("\n    Error adding");
+					Alert msg = new Alert(AlertType.ERROR);
+					msg.setContentText("Error adding");
+					msg.showAndWait();
 				}
 			}
 		}
-		Film.pressKeyToContinue();
 	}
 
 	// Insert content to tables
@@ -330,43 +269,6 @@ public class DBConnect {
 			System.out.println(e);
 		}
 		return false;
-	}
-
-	// Read records of a table (ArrayList getters)
-	private void readTable(ArrayList<String> table, String name)
-	{
-		System.out.println("    "+name);
-		System.out.print("\n    | "); // Formatting
-		for(int i=0;i<table.size();i++)
-		{
-			if(i%10==0 && i !=0) 			// Formatting: new line after 10 values
-			{
-				System.out.println("");		// Break line
-				System.out.print("    | "); // Add spaces
-			}
-			System.out.print((i+1)+" "+table.get(i)+" | "); // Print values
-		}
-		System.out.println("\n");
-	}
-
-	// Database statistics
-	public void databaseStats()
-	{
-		System.out.println("\n    Database statistics");
-		System.out.println("    --------------------\n");
-		System.out.println("    Amount of data stored in database:");
-		System.out.printf("\n    %8d words", getWords().size());
-		System.out.printf("\n    %8d verbs", getVerbs().size());
-		System.out.printf("\n    %8d subjects", getSubjects().size());
-		System.out.printf("\n    %8d stories", getStories().size());
-		System.out.printf("\n    %8d locations", getLocations().size());
-		System.out.printf("\n    %8d hyperbolics", getHyperbolics().size());
-		System.out.printf("\n    %8d genres", getCategories().size());
-		System.out.printf("\n    %8d generated films (title + descripton)", getFilmForeignKeys().size());
-		System.out.printf("\n    %8d generated titles", getTitleForeignKeys().size());
-		System.out.printf("\n    %8d generated subjecs", getDescriptionForeignKeys().size());
-		System.out.println("\n");
-		Film.pressKeyToContinue();
 	}
 
 	// Delete a generated film
@@ -995,12 +897,6 @@ public class DBConnect {
 			System.out.println("Error in connection");
 		}
 		return(words);
-	}
-
-	// Close the scanner
-	public void closeScanner()
-	{
-		dbInput.close();
 	}
 
 }

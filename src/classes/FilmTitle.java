@@ -65,7 +65,6 @@ public class FilmTitle extends Film{
 	{
 		ArrayList<String> keys = myDBConnection.getTitleForeignKeys(); 	// Contains Primary Key and foreign keys from database
 		ArrayList<String> titles = new ArrayList<>(); 					// Here we will store the merged titles
-		FilmTitle filmTit = new FilmTitle(); 							// Create obj for calling delete method in parent class
 		ArrayList<Integer> pkListTitle = new ArrayList<Integer>(); 		// Here we store primary keys for the delete option
 		// Merge the titles
 		for(int i=0;i<keys.size();i++)
@@ -82,39 +81,6 @@ public class FilmTitle extends Film{
 			titles.add(mergedTitle); // Add title to ArrayList
 		}
 		return titles;
-	}
-
-	// Print generated title to the user
-	public void showFormattedTitle()
-	{
-		System.out.println("\n    Generated film title:");
-		System.out.println("    "+generatedTitle);			// Print the title
-		titleOptions();										// What can the user do with the title
-	}
-
-	// Generated title options, regenerate and store in DB
-	private void titleOptions()
-	{
-		System.out.println("");
-		System.out.println("    [1] Generate another title");
-		System.out.println("    [2] Save the generated title");
-		System.out.println("\n    Press just enter for main menu");
-		System.out.println("");
-		System.out.print("    Choice: ");
-
-		String userChoice = userInput.nextLine().toLowerCase();
-
-		switch(userChoice) {
-		case "1":
-			this.generatedTitle=this.generateTitle();
-			this.showFormattedTitle();
-			break;
-		case "2":
-			this.storeGeneratedTitle();
-			break;
-		default:
-			break;
-		}
 	}
 
 	// Save generated title to the database

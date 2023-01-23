@@ -29,14 +29,15 @@
 			</rowConstraints>
 			<children>
 				<Button fx:id="backToMain" mnemonicParsing="false" onAction="#onClickToMain" prefWidth="90.0" text="Back to main" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-            <ListView fx:id="listview" centerShape="false" prefHeight="200.0" prefWidth="820.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
+            <ListView fx:id="listview" centerShape="false" prefHeight="200.0" prefWidth="400.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.rowSpan="3" GridPane.valignment="CENTER" />
             <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#onClickDelete" prefWidth="90.0" text="Delete" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP" />
             <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#onClickAdd" prefWidth="90.0" text="Add" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="5" GridPane.valignment="TOP" />
-            <Label contentDisplay="CENTER" prefHeight="53.0" prefWidth="332.0" text="Edit hyperbolics" textFill="YELLOW" GridPane.columnIndex="1">
+            <Label contentDisplay="CENTER" prefHeight="53.0" prefWidth="332.0" text="Edit hyperbolics" textFill="YELLOW" GridPane.columnIndex="1" GridPane.columnSpan="2">
                <font>
                   <Font name="System Bold" size="36.0" />
                </font>
             </Label>
+            <Button fx:id="btnBack" mnemonicParsing="false" onAction="#onClickBack" prefWidth="90.0" text="Back" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="5" GridPane.valignment="TOP" />
 			</children>
 		</GridPane>
 	</children>

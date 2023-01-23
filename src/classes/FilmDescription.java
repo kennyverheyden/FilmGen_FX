@@ -71,7 +71,6 @@ public class FilmDescription extends Film{
 	{
 		ArrayList<String> keys = myDBConnection.getDescriptionForeignKeys();// Contains Primary Key and foreign keys from database
 		ArrayList<String> descriptions = new ArrayList<>(); 				// Here we will store the merged descriptions
-		FilmDescription filmDes = new FilmDescription(); 					//Create obj for calling delete method in parent class
 		ArrayList<Integer> pkListDescription = new ArrayList<Integer>(); 	// Here we store primary keys for the delete option
 		// Merge the descriptions
 		for(int i=0;i<keys.size();i++)

@@ -34,12 +34,12 @@
                </font>
             </Label>
             <Button fx:id="btnWords" alignment="CENTER" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickWords" prefWidth="120.0" text="Edit words" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
-            <Button fx:id="btnVerbs" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickVerbs" prefWidth="120.0" text="Edit Verbs" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-            <Button fx:id="btnSubjects" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickSubjects" prefWidth="120.0" text="Edit Subjects" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-            <Button fx:id="btnStories" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickStories" prefWidth="120.0" text="Edit Stories" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
-            <Button fx:id="btnLocations" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickLocations" prefWidth="120.0" text="Edit Locations" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-            <Button fx:id="btnHyperbolics" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickHyperbolics" prefWidth="120.0" text="Edit Hyperbolics" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-            <Button fx:id="btnGenres" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickGenres" prefWidth="120.0" text="Edit Genres" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <Button fx:id="btnVerbs" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickVerbs" prefWidth="120.0" text="Edit verbs" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
+            <Button fx:id="btnSubjects" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickSubjects" prefWidth="120.0" text="Edit subjects" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+            <Button fx:id="btnStories" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickStories" prefWidth="120.0" text="Edit stories" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" />
+            <Button fx:id="btnLocations" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickLocations" prefWidth="120.0" text="Edit locations" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <Button fx:id="btnHyperbolics" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickHyperbolics" prefWidth="120.0" text="Edit hyperbolics" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <Button fx:id="btnGenres" contentDisplay="CENTER" minWidth="90.0" mnemonicParsing="false" onAction="#onClickGenres" prefWidth="120.0" text="Edit genres" GridPane.columnIndex="3" GridPane.rowIndex="3" />
 			</children>
 		</GridPane>
 	</children>

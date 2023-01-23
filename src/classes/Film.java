@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Random;
-import java.util.Scanner;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
@@ -16,9 +15,6 @@ import javafx.scene.control.Alert.AlertType;
 public abstract class Film {
 
 	// PARENT CLASS
-
-	// Initialize static Scanner for all child classes
-	static Scanner userInput = new Scanner(System.in);
 
 	// Make DB connection
 	static DBConnect myDBConnection = new DBConnect();
@@ -183,12 +179,6 @@ public abstract class Film {
 		return article;
 	}
 
-	// Pause or stop the program till user input
-	public static void pressKeyToContinue() {
-		System.out.println("    Press enter to continue");
-		userInput.nextLine();
-	}
-
 	// Capitalize the first letter of a String
 	public static String capitalize(String str) {
 		if(str == null || str.isEmpty()) {
@@ -223,12 +213,6 @@ public abstract class Film {
 			msg.showAndWait();
 			e.printStackTrace();
 		}
-	}
-
-	// Close scanner
-	public static void closeScanner()
-	{
-		userInput.close();
 	}
 
 }
