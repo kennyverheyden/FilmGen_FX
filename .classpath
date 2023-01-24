@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry excluding="resources/|resources/sqlite-jdbc/|resources/sqlite-jdbc/|resources/javafx/|resources/sqlite-jdbc/" kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre_with_fx"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre  with fx">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="src/resources/sqlite-jdbc/sqlite-jdbc-3.39.4.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

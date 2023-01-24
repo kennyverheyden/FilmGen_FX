@@ -1,4 +1,4 @@
-package main;
+package controllers;
 
 import java.io.IOException;
 
@@ -70,7 +70,7 @@ public class ControllerStats {
 	
 	@FXML
 	public  void onClickToMain(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiHome.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiHome.fxml"));
 		statsPane.getChildren().setAll(pane); // load in same window
 	}
 

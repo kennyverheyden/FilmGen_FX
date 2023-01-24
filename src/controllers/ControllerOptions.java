@@ -1,4 +1,4 @@
-package main;
+package controllers;
 
 import java.io.IOException;
 
@@ -43,49 +43,49 @@ public class ControllerOptions {
 
 	@FXML
 	void onClickGenres(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiOptionGenres.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiOptionGenres.fxml"));
 		OptionsPane.getChildren().setAll(pane); // load in same window
 	}
 
 	@FXML
 	void onClickHyperbolics(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiOptionHyperbolics.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiOptionHyperbolics.fxml"));
 		OptionsPane.getChildren().setAll(pane); // load in same window
 	}
 
 	@FXML
 	void onClickLocations(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiOptionLocations.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiOptionLocations.fxml"));
 		OptionsPane.getChildren().setAll(pane); // load in same window
 	}
 
 	@FXML
 	void onClickStories(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiOptionStories.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiOptionStories.fxml"));
 		OptionsPane.getChildren().setAll(pane); // load in same window
 	}
 
 	@FXML
 	void onClickSubjects(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiOptionSubjects.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiOptionSubjects.fxml"));
 		OptionsPane.getChildren().setAll(pane); // load in same window
 	}
 
 	@FXML
 	void onClickVerbs(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiOptionVerbs.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiOptionVerbs.fxml"));
 		OptionsPane.getChildren().setAll(pane); // load in same window
 	}
 
 	@FXML
 	void onClickWords(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiOptionWords.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiOptionWords.fxml"));
 		OptionsPane.getChildren().setAll(pane); // load in same window
 	}
 
 	@FXML
 	public void onClickToMain(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiHome.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiHome.fxml"));
 		OptionsPane.getChildren().setAll(pane); // load in same window
 	}
 

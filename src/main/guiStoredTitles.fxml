@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="storedTitlesPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControllerStoredTitles">
+<AnchorPane fx:id="storedTitlesPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerStoredTitles">
 	<children>
 		<GridPane fx:id="gridPaneStoredTitles" prefHeight="700" prefWidth="950" style="-fx-background-color: #2145D9;">
 			<columnConstraints>

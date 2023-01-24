@@ -1,4 +1,4 @@
-package main;
+package controllers;
 
 import classes.DBConnect;
 import classes.FilmTitle;
@@ -114,7 +114,7 @@ public class ControllerStoredTitles {
 	
 	@FXML
 	void onClickToMain(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiHome.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiHome.fxml"));
 		storedTitlesPane.getChildren().setAll(pane); // load in same window
 	}
 

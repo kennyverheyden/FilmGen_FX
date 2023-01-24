@@ -1,8 +1,7 @@
-package main;
+package controllers;
 
 import classes.DBConnect;
-import classes.FilmDescription;
-import classes.FilmTitle;
+import classes.FilmTitleDescription;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,29 +17,29 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
-public class ControllerStoredDescriptions {
+public class ControllerStoredFilms {
 
 	@FXML
 	private Button backToMain;
 
 	@FXML
-	private AnchorPane storedDescriptionsPane;
+	private AnchorPane storedFilmsPane;
 
 	@FXML
-	private GridPane gridPaneStoredDescriptions;
+	private GridPane gridPaneFilm;
 
 	@FXML
 	private ListView<String> listview;
 
-	FilmDescription description = new FilmDescription();
+	FilmTitleDescription film = new FilmTitleDescription();
 	DBConnect myDBConnection = new DBConnect();
 
-	ArrayList<String> listedDescriptions = new ArrayList<>(FilmDescription.readStoredDescription());
+	ArrayList<String> listedFilms = new ArrayList<>(FilmTitleDescription.readStoredTitleDescription());
 
 	public void initialize()
 	{
 		// Puts the titles contained in an ArrayList in a list
-		listview.getItems().addAll(listedDescriptions);
+		listview.getItems().addAll(listedFilms);
 		listview.setStyle("-fx-font-family: monospace; -fx-font-weight: bold;");
 	}
 
@@ -72,22 +71,22 @@ public class ControllerStoredDescriptions {
 			{
 
 				// System.out.println(id);
-				ArrayList<Integer> pkListDescriptions = new ArrayList<Integer>(); 		// Here we will store the primary keys for the delete option
-				ArrayList<String> keys = myDBConnection.getDescriptionForeignKeys(); 	// Contains Primary Key and foreign keys from database
+				ArrayList<Integer> pkListFilms = new ArrayList<Integer>(); 		// Here we will store the primary keys for the delete option
+				ArrayList<String> keys = myDBConnection.getFilmForeignKeys(); 	// Contains Primary Key and foreign keys from database
 
 				// Make list of Primary keys
 				for(int i=0;i<keys.size();i++)
 				{
 					String[] parts = keys.get(i).split(" ");		// Retrieve a record and split to array by space
-					pkListDescriptions.add(Integer.parseInt(parts[0])); 	// Primary key
+					pkListFilms.add(Integer.parseInt(parts[0])); 	// Primary key
 				}
 
 				// Delete
-				boolean succes=description.deleteItem(pkListDescriptions, id);
-				ArrayList<String> listedDescriptions = new ArrayList<>(FilmDescription.readStoredDescription());
+				boolean succes=film.deleteItem(pkListFilms, id);
+				ArrayList<String> listedFilms = new ArrayList<>(FilmTitleDescription.readStoredTitleDescription());
 				listview.getItems().clear();
-				listview.getItems().addAll(listedDescriptions);
-				listview.setStyle("-fx-font-family: monospace;");
+				listview.getItems().addAll(listedFilms);
+				listview.setStyle("-fx-font-family: monospace; -fx-font-weight: bold;");
 
 				// Show status msg
 				if(succes)
@@ -108,15 +107,15 @@ public class ControllerStoredDescriptions {
 		}
 	}
 
-    @FXML
-    void btnExport(ActionEvent event) {
-    	description.writeToFile(description.getObjName(), listedDescriptions);
-    }
-	
+	@FXML
+	void btnExport(ActionEvent event) {
+		film.writeToFile(film.getObjName(), listedFilms);
+	}
+
 	@FXML
 	void onClickToMain(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiHome.fxml"));
-		storedDescriptionsPane.getChildren().setAll(pane); // load in same window
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiHome.fxml"));
+		storedFilmsPane.getChildren().setAll(pane); // load in same window
 	}
 
 }

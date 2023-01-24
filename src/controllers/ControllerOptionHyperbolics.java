@@ -1,4 +1,4 @@
-package main;
+package controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.StageStyle;
 
-public class ControllerOptionSubjects {
+public class ControllerOptionHyperbolics {
 
 	@FXML
 	private Button backToMain;
@@ -30,17 +30,17 @@ public class ControllerOptionSubjects {
 	private Button btnDelete;
 
 	@FXML
-	private GridPane gridPaneOptionSubjects;
+	private GridPane gridPaneOptionHyperbolics;
 
 	@FXML
 	private ListView<String> listview;
 
 	@FXML
-	private AnchorPane optionSubjectsPane;
-
+	private AnchorPane optionHyperbolicsPane;
+	
 	DBConnect myDBConnection = new DBConnect();
 
-	ArrayList<String> content = new ArrayList<>(myDBConnection.getSubjects());
+	ArrayList<String> content = new ArrayList<>(myDBConnection.getHyperbolics());
 
 	public void initialize()
 	{
@@ -51,9 +51,9 @@ public class ControllerOptionSubjects {
 
 	@FXML
 	void onClickAdd(ActionEvent event) {
-		myDBConnection.askInsertContent("subjects","subject");	// Parameters tableName, columnName
+		myDBConnection.askInsertContent("hyperbolic","hyperbolic");	// Parameters tableName, columnName
 		// Reload listview
-		ArrayList<String> content = new ArrayList<>(myDBConnection.getSubjects());
+		ArrayList<String> content = new ArrayList<>(myDBConnection.getHyperbolics());
 		listview.getItems().clear();
 		listview.getItems().addAll(content);
 		listview.setStyle("-fx-font-family: monospace; -fx-font-weight: bold;");
@@ -62,24 +62,24 @@ public class ControllerOptionSubjects {
 	@FXML
 	void onClickDelete(ActionEvent event) {
 		int id=listview.getSelectionModel().getSelectedIndex();
-		myDBConnection.askDeleteContent("subjects","subject",id);		// Parameters tableName columnName
+		myDBConnection.askDeleteContent("hyperbolic","hyperbolic",id);		// Parameters tableName columnName
 		// Reload listview
-		ArrayList<String> content = new ArrayList<>(myDBConnection.getSubjects());
-		listview.getItems().clear();
-		listview.getItems().addAll(content);
-		listview.setStyle("-fx-font-family: monospace; -fx-font-weight: bold;");
+				ArrayList<String> content = new ArrayList<>(myDBConnection.getHyperbolics());
+				listview.getItems().clear();
+				listview.getItems().addAll(content);
+				listview.setStyle("-fx-font-family: monospace; -fx-font-weight: bold;");
 	}
-
+	
 	@FXML
 	void onClickBack(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiOptions.fxml"));
-		optionSubjectsPane.getChildren().setAll(pane); // load in same window
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiOptions.fxml"));
+		optionHyperbolicsPane.getChildren().setAll(pane); // load in same window
 	}
 
 	@FXML
 	void onClickToMain(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiHome.fxml"));
-		optionSubjectsPane.getChildren().setAll(pane); // load in same window
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiHome.fxml"));
+		optionHyperbolicsPane.getChildren().setAll(pane); // load in same window
 	}
 
 }

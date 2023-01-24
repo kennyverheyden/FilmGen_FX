@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="optionSubjectsPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ControllerOptionSubjects">
+<AnchorPane fx:id="optionSubjectsPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ControllerOptionSubjects">
 	<children>
 		<GridPane fx:id="gridPaneOptionSubjects" prefHeight="700" prefWidth="950" style="-fx-background-color: #2145D9;">
 			<columnConstraints>

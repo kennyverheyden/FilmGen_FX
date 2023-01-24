@@ -1,4 +1,4 @@
-package main;
+package controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.StageStyle;
 
-public class ControllerOptionVerbs {
+public class ControllerOptionSubjects {
 
 	@FXML
 	private Button backToMain;
@@ -30,18 +30,17 @@ public class ControllerOptionVerbs {
 	private Button btnDelete;
 
 	@FXML
-	private GridPane gridPaneOptionVerbs;
+	private GridPane gridPaneOptionSubjects;
 
 	@FXML
 	private ListView<String> listview;
 
 	@FXML
-	private AnchorPane optionVerbsPane;
-
+	private AnchorPane optionSubjectsPane;
 
 	DBConnect myDBConnection = new DBConnect();
 
-	ArrayList<String> content = new ArrayList<>(myDBConnection.getVerbs());
+	ArrayList<String> content = new ArrayList<>(myDBConnection.getSubjects());
 
 	public void initialize()
 	{
@@ -50,12 +49,11 @@ public class ControllerOptionVerbs {
 		listview.setStyle("-fx-font-family: monospace; -fx-font-weight: bold;");
 	}
 
-
 	@FXML
 	void onClickAdd(ActionEvent event) {
-		myDBConnection.askInsertContent("verbs","verb");	// Parameters tableName, columnName
+		myDBConnection.askInsertContent("subjects","subject");	// Parameters tableName, columnName
 		// Reload listview
-		ArrayList<String> content = new ArrayList<>(myDBConnection.getVerbs());
+		ArrayList<String> content = new ArrayList<>(myDBConnection.getSubjects());
 		listview.getItems().clear();
 		listview.getItems().addAll(content);
 		listview.setStyle("-fx-font-family: monospace; -fx-font-weight: bold;");
@@ -64,9 +62,9 @@ public class ControllerOptionVerbs {
 	@FXML
 	void onClickDelete(ActionEvent event) {
 		int id=listview.getSelectionModel().getSelectedIndex();
-		myDBConnection.askDeleteContent("verbs","verb",id);		// Parameters tableName columnName
+		myDBConnection.askDeleteContent("subjects","subject",id);		// Parameters tableName columnName
 		// Reload listview
-		ArrayList<String> content = new ArrayList<>(myDBConnection.getVerbs());
+		ArrayList<String> content = new ArrayList<>(myDBConnection.getSubjects());
 		listview.getItems().clear();
 		listview.getItems().addAll(content);
 		listview.setStyle("-fx-font-family: monospace; -fx-font-weight: bold;");
@@ -74,14 +72,14 @@ public class ControllerOptionVerbs {
 
 	@FXML
 	void onClickBack(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiOptions.fxml"));
-		optionVerbsPane.getChildren().setAll(pane); // load in same window
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiOptions.fxml"));
+		optionSubjectsPane.getChildren().setAll(pane); // load in same window
 	}
 
 	@FXML
 	void onClickToMain(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiHome.fxml"));
-		optionVerbsPane.getChildren().setAll(pane); // load in same window
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiHome.fxml"));
+		optionSubjectsPane.getChildren().setAll(pane); // load in same window
 	}
 
 }

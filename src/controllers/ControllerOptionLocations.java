@@ -1,4 +1,4 @@
-package main;
+package controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -72,13 +72,13 @@ public class ControllerOptionLocations {
 
 	@FXML
 	void onClickBack(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiOptions.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiOptions.fxml"));
 		optionLocationsPane.getChildren().setAll(pane); // load in same window
 	}
 
 	@FXML
 	void onClickToMain(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("guiHome.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiHome.fxml"));
 		optionLocationsPane.getChildren().setAll(pane); // load in same window
 	}
 
