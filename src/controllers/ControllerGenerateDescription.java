@@ -51,7 +51,7 @@ public class ControllerGenerateDescription {
 
 	@FXML
 	public void onClickToMain(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiHome.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/guiHome.fxml"));
 		generateDescriptionPane.getChildren().setAll(pane); // load in same window
 	}
 

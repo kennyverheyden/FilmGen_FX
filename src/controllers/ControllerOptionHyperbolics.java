@@ -72,13 +72,13 @@ public class ControllerOptionHyperbolics {
 	
 	@FXML
 	void onClickBack(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiOptions.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/guiOptions.fxml"));
 		optionHyperbolicsPane.getChildren().setAll(pane); // load in same window
 	}
 
 	@FXML
 	void onClickToMain(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiHome.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/guiHome.fxml"));
 		optionHyperbolicsPane.getChildren().setAll(pane); // load in same window
 	}
 

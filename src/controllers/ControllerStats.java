@@ -70,7 +70,7 @@ public class ControllerStats {
 	
 	@FXML
 	public  void onClickToMain(ActionEvent event) throws IOException {
-		AnchorPane pane = FXMLLoader.load(getClass().getResource("/main/guiHome.fxml"));
+		AnchorPane pane = FXMLLoader.load(getClass().getResource("/fxml/guiHome.fxml"));
 		statsPane.getChildren().setAll(pane); // load in same window
 	}
 

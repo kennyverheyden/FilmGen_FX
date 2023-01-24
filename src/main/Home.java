@@ -16,7 +16,7 @@ public class Home extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		Parent root = FXMLLoader.load(getClass().getResource("guiHome.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/fxml/guiHome.fxml"));
 		Scene scene = new Scene(root, 950, 700);
 
 		primaryStage.setResizable(false);
