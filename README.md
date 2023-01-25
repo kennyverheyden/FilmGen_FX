@@ -34,5 +34,4 @@ User can edit database by adding and deleting values to the tables.
 
 <strong>Referential integrity</strong>, restrict delete. User cannot delete a value in the database when a foreign key points to it.
 
-"# FilmGen_FX" 
-"# FilmGen_FX" 
+![filmgen](https://user-images.githubusercontent.com/54863392/214706084-7b204267-81c5-4faf-abb3-e50587da8453.png)
