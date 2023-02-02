@@ -1,26 +1,28 @@
 FilmGen - Titles
 
-    1 Genre: Children     | Title:  Gun Egg
+  1 Genre: Action       | Title:  Royale Top
 
-    2 Genre: Action       | Title:  Royale Top
+  2 Genre: Travel       | Title:  Final Void
 
-    3 Genre: Travel       | Title:  Penguin Prejudice
+  3 Genre: Family       | Title:  Penguin Park
 
-    4 Genre: Travel       | Title:  Final Void
+  4 Genre: Travel       | Title:  Explosion Battle
 
-    5 Genre: Family       | Title:  Penguin Park
+  5 Genre: Travel       | Title:  Alaskan Gear
 
-    6 Genre: Travel       | Title:  Explosion Battle
+  6 Genre: New          | Title:  Formula Explosion
 
-    7 Genre: Travel       | Title:  Alaskan Gear
+  7 Genre: Travel       | Title:  Gear Battle
 
-    8 Genre: New          | Title:  Formula Explosion
+  8 Genre: Travel       | Title:  Magic Gear
 
-    9 Genre: Travel       | Title:  Gear Battle
+  9 Genre: Action       | Title:  Nightmare Babylon
 
-   10 Genre: Sci-fi       | Title:  Beyond Alternate
+ 10 Genre: Action       | Title:  Lunch Counter
 
-   11 Genre: Sci-fi       | Title:  Force Among Us
+ 11 Genre: Travel       | Title:  Bomb Drug
 
-   12 Genre: Travel       | Title:  Magic Gear
+ 12 Genre: Sports       | Title:  Thunder Man
+
+ 13 Genre: Sci-fi       | Title:  Alternate Rock
 

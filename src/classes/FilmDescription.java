@@ -54,7 +54,7 @@ public class FilmDescription extends Film{
 		String subject2=subjects.get(randomPicker(subjects));
 		fkOfSubject2=Integer.parseInt(myDBConnection.getSubject_fks().get(subjects.indexOf(subject2)));
 		String subject3=subjects.get(randomPicker(subjects));
-		fkOfSubject3=Integer.parseInt(myDBConnection.getSubject_fks().get(subjects.indexOf(subject2)));
+		fkOfSubject3=Integer.parseInt(myDBConnection.getSubject_fks().get(subjects.indexOf(subject3)));
 		String verb=verbs.get(randomPicker(verbs));
 		fkOfVerb=Integer.parseInt(myDBConnection.getSubject_fks().get(verbs.indexOf(verb)));
 		String location=locations.get(randomPicker(locations));
